@@ -67,51 +67,11 @@ dataSaham = {
                 'nilai':439964438000, 
                 'hapus':False}}
 
-# tampilan menu utama 
-def menu_utama():
-        while True:
-                print('\n')
-                print('='*110)
-                print(f'{'SISTEM MANAJEMEN DATA SAHAM KONOHA':^100}')
-                print('='*110)
-                
-                menu = input('''
-                        =================================
-                        *** Manajemen Data Saham 2025 ***
-                        =================================
-                        Daftar Menu Utama: 
-                        [1] Menampilkan Data Saham 
-                        [2] Menambah Data Saham 
-                        [3] Memperbarui Data Saham 
-                        [4] Menghapus Data Saham           
-                        [5] Keluar   
-                        =================================
-                        => Pilih Nomor Menu: ''')
-
-                if menu == '1':
-                        read()
-                elif menu == '2':
-                        create()
-                elif menu == '3':
-                        update()
-                elif menu == '4':
-                        delete()
-                elif menu == '5':
-                        exit()
-                else:
-                        print('\n')
-                        print(f'{'Silahkan pilih menu yang ingin dijalankan':^100}')
-                        print(f'{'*'*3:^100}')
-
-menu_utama()
-
-
 # format dalam bentuk ribuan
 def nominal(angka):
         if isinstance(angka, str): # Pastikan value adalah string yang berisi angka, hapus koma sebelum dikonversi.
                 angka = angka.replace(',', '')  # Hapus koma jika ada
         return f'{float(angka):,.2f}'
-
 
 # format dalam bentuk presentase
 def presentase(perubahan):
@@ -736,3 +696,41 @@ def exit():
                         menu_utama()
                 else:
                         print('Pilihan anda tidak valid')
+
+# tampilan menu utama 
+def menu_utama():
+        while True:
+                print('\n')
+                print('='*110)
+                print(f'{'SISTEM MANAJEMEN DATA SAHAM KONOHA':^100}')
+                print('='*110)
+                
+                menu = input('''
+                        =================================
+                        *** Manajemen Data Saham 2025 ***
+                        =================================
+                        Daftar Menu Utama: 
+                        [1] Menampilkan Data Saham 
+                        [2] Menambah Data Saham 
+                        [3] Memperbarui Data Saham 
+                        [4] Menghapus Data Saham           
+                        [5] Keluar   
+                        =================================
+                        => Pilih Nomor Menu: ''')
+
+                if menu == '1':
+                        read()
+                elif menu == '2':
+                        create()
+                elif menu == '3':
+                        update()
+                elif menu == '4':
+                        delete()
+                elif menu == '5':
+                        exit()
+                else:
+                        print('\n')
+                        print(f'{'Silahkan pilih menu yang ingin dijalankan':^100}')
+                        print(f'{'*'*3:^100}')
+
+menu_utama()
