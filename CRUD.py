@@ -34,7 +34,7 @@ dataSaham = {
                 'nilai':941219074000, 
                 'hapus':False},
                 
-        5 :{'kode':'BRIS',
+        5 :     {'kode':'BRIS',
                 'perusahaan':'Bank Syariah Indonesia Tbk.', 
                 'hargaPembukaan':2610,
                 'hargaPenutupan':5550,
@@ -42,7 +42,7 @@ dataSaham = {
                 'nilai':85977800000, 
                 'hapus':False},
 
-        6 :{'kode':'BMRI',
+        6 :     {'kode':'BMRI',
                 'perusahaan':'Bank Mandiri (Persero) Tbk.', 
                 'hargaPembukaan':4870,
                 'hargaPenutupan':5550,
@@ -59,7 +59,7 @@ dataSaham = {
                 'nilai':436906658200, 
                 'hapus':False},
 
-        8 :{'kode':'TLKM',
+        8 :     {'kode':'TLKM',
                 'perusahaan':'Telkom Indonesia (Persero) Tbk.', 
                 'hargaPembukaan':2430,
                 'hargaPenutupan':5550,
