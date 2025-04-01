@@ -9,7 +9,7 @@ Aplikasi ini memungkinkan pengguna untuk mendapatkan informasi saham secara muda
   ![Screenshot 2025-03-29 003822](https://github.com/user-attachments/assets/73dc8dce-c1b6-4c3b-b423-b047440f90fc)
   
 - **Read**: Menampilkan semua data saham.
-            Pengguna dapat mencari saham berdasarkan ID, kode, atau kategori tertentu.
+            Dan pengguna juga dapat mencari saham berdasarkan ID, kode, atau kategori tertentu.
   ![Screenshot 2025-03-29 004042](https://github.com/user-attachments/assets/4ecc821c-3f6e-4cba-ba6a-8e0e2e1ed75a)
 
 - **Create**: Menambahkan data saham baru ke dalam sistem.
