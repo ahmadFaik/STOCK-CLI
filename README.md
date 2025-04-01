@@ -24,6 +24,9 @@ Aplikasi ini memungkinkan pengguna untuk mendapatkan informasi saham secara muda
 - **Exit**: Keluar dari sistem.
   ![image](https://github.com/user-attachments/assets/5f4f9397-1bae-4440-8a61-335355e95162)
 
+- **Output**: Contoh output dari aplikasi ini.
+  ![image](https://github.com/user-attachments/assets/b6951521-0d57-413e-8461-bfc1debf36a3)
+
 ## Instalasi
 
 Untuk memulai dengan proyek ini, ikuti langkah-langkah di bawah ini:
@@ -36,14 +39,20 @@ Untuk memulai dengan proyek ini, ikuti langkah-langkah di bawah ini:
    git clone https://github.com/ahmadFaik/STOCK-CLI.git
 
 2. **Pindah ke direktori project**:
+   ```bash
    cd STOCK-CLI
 
-3. **Instal prettytable**:
+4. **Instal prettytable**:
+   ```bash
    pip install prettytable
 
-4. **Jalankan proyek**:
+6. **Jalankan proyek**:
+   ```bash
    python stock_cli.py
 
-   
+## Penulis
+- Nama: Ahmad Faik
+- Email: faiquc29@gmail.com
+
 
 
