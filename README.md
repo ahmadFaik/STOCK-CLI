@@ -2,6 +2,8 @@
 
 Sebuah aplikasi CRUD sederhana yang dirancang untuk membantu pengguna dalam mengakses data terkait dengan saham di pasar saham.
 Aplikasi ini memungkinkan pengguna untuk mendapatkan informasi saham secara mudah dan cepat melalui terminal atau command line.
+Bahkan pengguna dapat menambahkan data saham baru ke dalam sistem, menghapus data saham dari sistem, dan juga memperbarui data saham
+secara real-time.
 
 ## Fitur
 
