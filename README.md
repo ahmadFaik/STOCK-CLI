@@ -1,13 +1,15 @@
 # SISTEM MANAJEMEN DATA SAHAM KONOHA
 
-Sebuah aplikasi CRUD sederhana yang memudahkan pengguna untuk memanajemen data saham 
+Sebuah aplikasi CRUD sederhana yang dirancang untuk membantu pengguna dalam mengakses data terkait dengan saham di pasar saham.
+Aplikasi ini memungkinkan pengguna untuk mendapatkan informasi saham secara mudah dan cepat melalui terminal atau command line.
 
 ## Fitur
 
 - **MainMenu**: Menampilkan daftar menu yang ada pada sistem.
   ![Screenshot 2025-03-29 003822](https://github.com/user-attachments/assets/73dc8dce-c1b6-4c3b-b423-b047440f90fc)
   
-- **Read**: Menampilkan semua data atau berdasarkan kategori tertentu.
+- **Read**: Menampilkan semua data saham.
+            Pengguna dapat mencari saham berdasarkan ID, kode, atau kategori tertentu.
   ![Screenshot 2025-03-29 004042](https://github.com/user-attachments/assets/4ecc821c-3f6e-4cba-ba6a-8e0e2e1ed75a)
 
 - **Create**: Menambahkan data saham baru ke dalam sistem.
@@ -24,7 +26,24 @@ Sebuah aplikasi CRUD sederhana yang memudahkan pengguna untuk memanajemen data s
 
 ## Instalasi
 
-Clone this project:
+Untuk memulai dengan proyek ini, ikuti langkah-langkah di bawah ini:
+
+1. **Clone repositori ini**:
+
+   Pertama, clone repositori ke komputer lokal Anda dengan perintah berikut:
+
    ```bash
-   git clone https://github.com/ahmadFaik/Portofolio.git
+   git clone https://github.com/ahmadFaik/STOCK-CLI.git
+
+2. **Pindah ke direktori project**:
+   cd STOCK-CLI
+
+3. **Instal prettytable**:
+   pip install prettytable
+
+4. **Jalankan proyek**:
+   python stock_cli.py
+
+   
+
 
