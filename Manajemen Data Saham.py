@@ -74,7 +74,7 @@ def menu_utama():
                 print(f'{'SISTEM MANAJEMEN DATA SAHAM KONOHA':^100}')
                 print('='*110)
                 
-                mainMenu = input('''
+                Menu_Utama = input('''
                         =====================================
                           *** Manajemen Data Saham 2025 ***
                         =====================================
@@ -87,16 +87,16 @@ def menu_utama():
                         ======================================
                         => Pilih menu yang ingin Anda akses : ''')
 
-                if mainMenu == '1':
-                        read()
-                elif mainMenu == '2':
-                        create()
-                elif mainMenu == '3':
-                        update()
-                elif mainMenu == '4':
-                        delete()
-                elif mainMenu == '5':
-                        exit_menu()
+                if Menu_Utama == '1':
+                        tampilkanData()
+                elif Menu_Utama == '2':
+                        tambahData()
+                elif Menu_Utama == '3':
+                        ubahData()
+                elif Menu_Utama == '4':
+                        hapusData()
+                elif Menu_Utama == '5':
+                        keluarProgram()
                 else:
                         print('\n')
                         print(f'{'Silahkan pilih menu yang ingin dijalankan':^100}')
@@ -217,14 +217,14 @@ def filter_harga():
                 print(f'{'*'*3:^100}')
                 input(f'{'Tekan Enter untuk melanjutkan..':^99}')
 
-def read():
+def tampilkanData():
         while True:
                 print('\r\n')
                 print('='*110)
                 print(f'{'SISTEM MANAJEMEN DATA SAHAM KONOHA':^100}')
                 print('='*110)
 
-                menuRead = input('''
+                menuCari = input('''
                         =============================================
                                ***  Data Saham Konoha 2025 ***
                         =============================================
@@ -238,19 +238,19 @@ def read():
                         ============================================= 
                         => Pilih menu yang ingin Anda akses : ''')
 
-                if menuRead == '1': # Menampilkan semua data saham
+                if menuCari == '1': # Menampilkan semua data saham
                         if len(dataSaham) > 0: 
                                 menampilkan()
                         else:
                                 print(f'{'\nData Saham Tidak Ditemukan':^100}')
                                 print(f'{'*'*3:^100}')
-                elif menuRead == '2': # Menampilkan data saham berdasarkan ID saham
+                elif menuCari == '2': # Menampilkan data saham berdasarkan ID saham
                         filter_id()
-                elif menuRead == '3': # Menampilkan data saham berdasarkan kode saham
+                elif menuCari == '3': # Menampilkan data saham berdasarkan kode saham
                         filter_kode()
-                elif menuRead == '4': # Menampilkan data saham berdasarkan harga pembukaan/penutupan saham
+                elif menuCari == '4': # Menampilkan data saham berdasarkan harga pembukaan/penutupan saham
                         filter_harga()
-                elif menuRead == '5': # Kembali ke menu utama 
+                elif menuCari == '5': # Kembali ke menu utama 
                         menu_utama()
                 else:
                         print('\n')
@@ -295,7 +295,7 @@ def cekHargaPenutupan():
                 except ValueError:
                         print('\nMaaf, harga yang Anda masukkan tidak valid. Pastikan harga berupa angka dan coba lagi.\n')
 
-def cekperubahan(hargaPembukaan, hargaPenutupan):
+def cekPerubahan(hargaPembukaan, hargaPenutupan):
         if hargaPembukaan == 0: 
                 return 0
         # Menghitung persentase perubahan harga saham
@@ -381,7 +381,7 @@ def menambahkan():
                         else:        
                                 hargaPembukaan = cekHargaPembukaan() # User menambahkan harga prmbukaan saham baru
                                 hargaPenutupan = cekHargaPenutupan() # User menambahkan harga penutupan saham baru
-                                perubahan = cekperubahan(hargaPembukaan, hargaPenutupan) # Menampilkan nilai perubahan harga saham
+                                perubahanHarga = cekPerubahan(hargaPembukaan, hargaPenutupan) # Menampilkan nilai perubahan harga saham
                                 nilai = cekNilai() # User menambahkan total nilai transaksi saham tersebut
                                 # Menampung & menampilkan data baru yg ditambahkan 
                                 print('\nData Baru:')
@@ -390,7 +390,7 @@ def menambahkan():
                                         'perusahaan':perusahaan, 
                                         'hargaPembukaan':nominal(hargaPembukaan),
                                         'hargaPenutupan':nominal(hargaPenutupan),
-                                        'perubahan':presentase(perubahan), 
+                                        'perubahan':presentase(perubahanHarga), 
                                         'nilai':nominal(nilai), 
                                         'hapus':False}
                                 Tabel = PrettyTable()
@@ -398,7 +398,7 @@ def menambahkan():
                                 Tabel.title = 'RINGKASAN PASAR SAHAM KONOHA 2025'
                                 harga_pembukaan = nominal(hargaPembukaan)
                                 harga_penutupan = nominal(hargaPenutupan)
-                                perubahan_harga = presentase(perubahan)
+                                perubahan_harga = presentase(perubahanHarga)
                                 nilai_transaksi = nominal(nilai)
                                 Tabel.add_row([ID, kode, perusahaan, harga_pembukaan, harga_penutupan, perubahan_harga, nilai_transaksi])
                                 print(Tabel)
@@ -409,18 +409,18 @@ def menambahkan():
                                         menampilkan()
                                 else:
                                         print(f"Penambahan data saham dibatalkan.\n")
-                                        create()
+                                        tambahData()
 
         input('=> Tekan Enter untuk melanjutkan..')
 
-def create():
+def tambahData():
         while True:
                 print('\r\n')
                 print('='*110)
                 print(f'{'SISTEM MANAJEMEN DATA SAHAM KONOHA':^100}')
                 print('='*110)
 
-                menuCreate = input('''
+                menuTambah = input('''
                         ======================================
                           *** Penambahan Data Saham 2025 ***
                         ======================================
@@ -431,13 +431,13 @@ def create():
                         ======================================
                         => Pilih menu yang ingin Anda akses : ''')
 
-                if menuCreate == '1': # Menambahkan data saham baru 
+                if menuTambah == '1': # Menambahkan data saham baru 
                         if len(dataSaham) > 0:
                                 menambahkan() 
                         else:
                                 print(f'{'Data Saham Tidak Ditemukan':^100}')
                                 print(f'{'*'*3:^100}')
-                elif menuCreate == '2':
+                elif menuTambah == '2':
                         menu_utama()
                 else:
                         print('\n')
@@ -502,7 +502,7 @@ def memperbarui():
                         elif kolom == '5': # Memperbarui persentase perubahan harga saham
                                 hargaPembukaan = cekHargaPembukaan()
                                 hargaPenutupan = cekHargaPenutupan()
-                                perubahan = cekperubahan(hargaPembukaan, hargaPenutupan) # Hitung perubahan harga
+                                perubahan = cekPerubahan(hargaPembukaan, hargaPenutupan) # Hitung perubahan harga
                                 if perubahan is not None:
                                         # Ubah perubahan ke format persentase
                                         perubahan = presentase(perubahan)
@@ -534,9 +534,9 @@ def memperbarui():
                                 print(f"\nData saham {dataSaham[ID]['perusahaan']} berhasil diperbarui\n")
                         else:
                                 print(f"\nPembaruan data saham {dataSaham[ID]['perusahaan']} dibatalkan. Tidak ada perubahan yang dilakukan.\n")
-                                update()
+                                ubahData()
                 else:
-                        update()
+                        ubahData()
                 
         else:
                 print(f"{'Data dengan ID yang Anda masukkan tidak terdeteksi. Pastikan ID benar.':^100}")
@@ -544,7 +544,7 @@ def memperbarui():
 
         input(f'{'Tekan Enter untuk melanjutkan..':^99}')
 
-def update():
+def ubahData():
         while True:
                 print('\r\n')
                 print('='*110)
@@ -624,7 +624,7 @@ def menghapus():
         input(f'{'Tekan Enter untuk melanjutkan..':^99}')
 
 # menghapus data berdasarkan id untuk hard deleted
-def hard_delete():
+def hapusPermanen():
         while True:
                 try:
                         id = int(input('\t\t\t=> Masukkan id yang ingin dihapus: '))
@@ -694,7 +694,7 @@ def riwayat_hapus():
         input('=> Tekan Enter untuk melanjutkan..')
 
 # memulihkan data yg ada di riwayat hapus
-def restore():
+def pulihkanData():
         if not recycle_bin:
                 return
         else:
@@ -727,14 +727,14 @@ def restore():
         input(f'{'Tekan Enter untuk melanjutkan..':^99}')
 
 # tampilan menu untuk menghapus data  
-def delete():
+def hapusData():
         while True:
                 print('\r\n')
                 print('='*110)
                 print(f'{'SISTEM MANAJEMEN DATA SAHAM KONOHA':^100}')
                 print('='*110)
 
-                menuDelete = input('''
+                menuHapus = input('''
                         ===================================
                         *** Penghapusan Data Saham 2025 ***
                         ===================================
@@ -743,21 +743,21 @@ def delete():
                         [1] Menghapus Data Saham  
                         [2] Hapus Permanen Data Saham
                         [3] Data Saham Terhapus
-                        [4] Pemulihan Data Saham Terhapus
+                        [4] Pemulihkan Data Saham Terhapus
                         [5] Kembali ke Menu Utama 
                         ===================================
                         => Pilih menu yang ingin Anda akses : ''')
                 
-                if menuDelete == '1':
+                if menuHapus == '1':
                         menghapus()
-                elif menuDelete == '2':
-                        hard_delete()
-                elif menuDelete == '3':
+                elif menuHapus == '2':
+                        hapusPermanen()
+                elif menuHapus == '3':
                         riwayat_hapus()
-                elif menuDelete == '4':
+                elif menuHapus == '4':
                         riwayat_hapus()
-                        restore()
-                elif menuDelete == '5':
+                        pulihkanData()
+                elif menuHapus == '5':
                         menu_utama()
                 else: 
                         print('\n')
@@ -769,8 +769,8 @@ def delete():
 # ********** EXIT **********
 # ****************************
 # tampilan menu untuk keluar dari pemrograman
-def exit_menu():
-                menuExit = input('''
+def keluarProgram ():
+                menuKeluar = input('''
                         =====================================
                             Terima Kasih Telah Menggunakan
                                 Sistem Manajemen Saham
@@ -781,13 +781,13 @@ def exit_menu():
                         =====================================
                         => Pilih menu yang ingin Anda akses : ''')
 
-                if menuExit == '1': 
+                if menuKeluar == '1': 
                         print('\n')
                         print(f'{'TERIMA KASIH...😊':^80}')
                         print(f'{'*'*3:^80}')
                         print('\n')
                         exit()
-                elif menuExit == '2':
+                elif menuKeluar == '2':
                         menu_utama()
                 else:
                         print('\n')
