@@ -67,43 +67,99 @@ dataSaham = {
              'nilai':439964438000, 
              'hapus':False}}
 
-# tampilan menu utama 
-def menu_utama():
+def login():
+        os.system('cls')
         while True:
-                os.system('cls')
                 print('\n')
                 print('='*110)
+                print(f'{'SELAMAT DATANG DI':^100}')
                 print(f'{'SISTEM MANAJEMEN DATA SAHAM KONOHA':^100}')
                 print('='*110)
                 
-                Menu_Utama =   input('''
-                               =====================================
-                                 *** Manajemen Data Saham 2025 ***
-                               =====================================
-                               Daftar Menu Utama: 
-                               [1] Menampilkan Data Saham 
-                               [2] Menambah Data Saham 
-                               [3] Memperbarui Data Saham 
-                               [4] Menghapus Data Saham           
-                               [5] Keluar   
-                               ======================================
-                               => Pilih menu yang ingin Anda akses : ''')
+                user = input('Status Pengguna : ')
+                password = input('Kata Sandi\t: ')
 
-                if Menu_Utama == '1':
-                        tampilkanData()
-                elif Menu_Utama == '2':
-                        tambahData()
-                elif Menu_Utama == '3':
-                        ubahData()
-                elif Menu_Utama == '4':
-                        hapusData()
-                elif Menu_Utama == '5':
-                        keluarSistem()
+                if user == 'admin' and password == 'admin29':
+                        return 'admin'
+                elif user == 'investor' and password == 'investor29':
+                        return 'investor'
                 else:
+                        print('Nama pengguna atau kata sandi yang Anda masukkan salah. Silakan coba lagi.\n')
+
+def user():
+        pengguna = login()
+
+        if pengguna:
+                print(f'Login berhasil sebagai {pengguna.capitalize()}')
+                menu_utama(pengguna)
+        else:
+                print('Login tidak berhasil!')
+
+# tampilan menu utama 
+def menu_utama(Pengguna):
+        # os.system('cls')
+        while True:
+                if Pengguna == 'admin':
                         print('\n')
-                        print(f'{'Silahkan pilih menu yang ingin dijalankan':^100}')
-                        print(f'{'*'*3:^100}')
-                        input(f'{'Tekan Enter untuk melanjutkan..':^99}')
+                        print('='*110)
+                        print(f'{'SISTEM MANAJEMEN DATA SAHAM KONOHA':^100}')
+                        print('='*110)
+                        Menu_admin = input('''
+                                =====================================
+                                  *** Manajemen Data Saham 2025 ***
+                                =====================================
+                                Daftar Menu Utama: 
+                                [1] Menampilkan Data Saham 
+                                [2] Menambah Data Saham 
+                                [3] Memperbarui Data Saham 
+                                [4] Menghapus Data Saham           
+                                [5] Keluar   
+                                ======================================
+                                => Pilih menu yang ingin Anda akses : ''')
+
+                        if Menu_admin == '1':
+                                tampilkanData()
+                        elif Menu_admin == '2':
+                                tambahData()
+                        elif Menu_admin == '3':
+                                ubahData()
+                        elif Menu_admin == '4':
+                                hapusData()
+                        elif Menu_admin == '5':
+                                keluarSistem()
+                        else:
+                                print('\n')
+                                print(f'{'Silahkan pilih menu yang ingin dijalankan':^100}')
+                                print(f'{'*'*3:^100}')
+                                input(f'{'Tekan Enter untuk melanjutkan..':^99}')
+                
+                elif Pengguna == 'investor':
+                        os.system('cls')
+                        print('\n')
+                        print('='*110)
+                        print(f'{'SISTEM MANAJEMEN DATA SAHAM KONOHA':^100}')
+                        print('='*110)
+                        Menu_investor = input('''
+                                =====================================
+                                  *** Manajemen Data Saham 2025 ***
+                                =====================================
+                                Daftar Menu Utama: 
+                                [1] Menampilkan Data Saham 
+                                [2] Keluar            
+                                ======================================
+                                => Pilih menu yang ingin Anda akses : ''')
+                        
+                        if Menu_investor == '1':
+                                tampilkanData()
+
+                        elif Menu_investor== '2':
+                                keluarSistem()
+                        else:
+                                print('\n')
+                                print(f'{'Silahkan pilih menu yang ingin dijalankan':^100}')
+                                print(f'{'*'*3:^100}')
+                                input(f'{'Tekan Enter untuk melanjutkan..':^99}')                                
+
 
 def nominal(angka):
         if isinstance(angka, str): 
@@ -138,7 +194,7 @@ def menampilkan():
 def filter_id():
         while True: 
                 try:
-                        idSaham = int(input('\t\t\t=> Masukkan ID saham yang ingin ditampilkan: '))
+                        idSaham = int(input('\t\t\t   => Masukkan ID saham yang ingin ditampilkan: '))
                         break
                 except ValueError: 
                         print('\n')
@@ -165,8 +221,7 @@ def filter_id():
                 input(f'{'Tekan Enter untuk melanjutkan..':^99}')
 
 def filter_kode():
-        kodeSaham = input('\t\t\t=> Masukkan kode saham yang ingin ditampilkan: ').upper()
-        
+        kodeSaham = input('\t\t\t   => Masukkan kode saham yang ingin ditampilkan: ').upper()
         print('\n')
         cari_kode = False 
         for i, data in dataSaham.items(): # Menampilkan data berdasarkan kode saham tertentu
@@ -199,8 +254,8 @@ def filter_harga():
                         print(f'{'*'*3:^100}')
         print('\n')
         cari_harga = False
-        for i, data in dataSaham.items(): # Menampilkan data berdasarkan harga saham tertentu, baik harga pembukaan maupun penutupan.
-                if data['hargaPembukaan'] == harga or data['hargaPenutupan'] == harga: #problem: kalo ada beberapa data yg ditemukan, maka akan ditampilkan datanya di tabel yg berbeda
+        for i, data in dataSaham.items(): # Menampilkan data berdasarkan harga pembukaan atau harga penutupan saham
+                if data['hargaPembukaan'] == harga or data['hargaPenutupan'] == harga: 
                         cari_harga = True
                         Tabel = PrettyTable()
                         Tabel.field_names = ['ID', 'Kode Saham', 'Nama Perusahaan', 'Harga Pembukaan', 'Harga Penutupan', 'Perubahan Harga', 'Nilai Transaksi']
@@ -251,10 +306,10 @@ def tampilkanData():
                         filter_id()
                 elif menuCari == '3': # Menampilkan data saham berdasarkan kode saham
                         filter_kode()
-                elif menuCari == '4': # Menampilkan data saham berdasarkan harga pembukaan/penutupan saham
+                elif menuCari == '4': # Menampilkan data saham berdasarkan harga pembukaan atau penutupan saham
                         filter_harga()
                 elif menuCari == '5': # Kembali ke menu utama 
-                        menu_utama()
+                        break
                 else:
                         print('\n')
                         print(f"{'Opsi yang Anda pilih tidak tersedia. Pilih menu yang valid dan coba lagi.':^100}")
@@ -416,7 +471,7 @@ def menambahkan():
 
 def tambahData():
         while True:
-                os.system('cls')
+                # os.system('cls')
                 print('\r\n')
                 print('='*110)
                 print(f'{'SISTEM MANAJEMEN DATA SAHAM KONOHA':^100}')
@@ -440,7 +495,7 @@ def tambahData():
                                 print(f'{'Data Saham Tidak Ditemukan':^100}')
                                 print(f'{'*'*3:^100}')
                 elif menuTambah == '2':
-                        menu_utama()
+                        break
                 else:
                         print('\n')
                         print(f"{'Opsi yang Anda pilih tidak tersedia. Pilih menu yang valid dan coba lagi.':^100}")
@@ -453,7 +508,7 @@ def tambahData():
 def memperbarui():
         while True: 
                 try:    # User input ID yang ingin diperbarui
-                        ID = int(input('Masukkan ID saham yang ingin diperbarui: '))
+                        ID = int(input('\t\t\t       => Masukkan ID saham yang ingin diperbarui: '))
                         break
                 except ValueError:
                         print('\n')
@@ -462,7 +517,6 @@ def memperbarui():
                         print('\n')
 
         if ID in dataSaham:
-                print('\n')
                 saham = dataSaham[ID] # Menampilkan data saham berdasarkan ID yang ingin diperbarui
                 Tabel = PrettyTable()
                 Tabel.field_names = ['ID', 'Kode Saham', 'Nama Perusahaan', 'Harga Pembukaan', 'Harga Penutupan', 'Perubahan Harga', 'Nilai Transaksi']
@@ -485,12 +539,12 @@ def memperbarui():
                         [5] Perubahan Harga 
                         [6] Nilai Transaksi  
                         => Masukkan kolom yang ingin diperbarui: ''')
-                        
+                        print('\n')
                         if kolom == '1': # Memperbarui kode saham  
                                 Kode = cekKode()
                                 dataSaham[ID]['kode'] = Kode
                         elif kolom == '2': # Memperbarui nama perusahaan
-                                Perusahaan = input('Masukkan nama perusahaan: ').title()
+                                Perusahaan = input('Masukkan nama perusahaan\t: ').title()
                                 dataSaham[ID]['perusahaan'] = Perusahaan
                         elif kolom == '3': # Memperbarui harga pembukaan saham
                                 HargaPembukaan = cekHargaPembukaan()
@@ -540,14 +594,14 @@ def memperbarui():
                         ubahData()
                 
         else:
-                print(f"{'Data dengan ID yang Anda masukkan tidak terdeteksi. Pastikan ID benar.':^100}")
+                print(f"{'\nData dengan ID yang Anda masukkan tidak terdeteksi. Pastikan ID benar.':^100}")
                 print(f'{'*'*3:^100}')
 
         input(f'{'Tekan Enter untuk melanjutkan..':^99}')
 
 def ubahData():
         while True:
-                os.system('cls')                
+                # os.system('cls')                
                 print('\r\n')
                 print('='*110)
                 print(f'{'SISTEM MANAJEMEN DATA SAHAM KONOHA':^100}')
@@ -568,7 +622,7 @@ def ubahData():
                         memperbarui() # Memperbarui data saham berdasarkan ID saham
                         menampilkan()
                 elif menuUpdate == '2':
-                        menu_utama()
+                        break
                 else:
                         print('\n')
                         print(f"{'Opsi yang Anda pilih tidak tersedia. Pilih menu yang valid dan coba lagi.':^100}")
@@ -582,7 +636,7 @@ recycle_bin = {} # untuk menampung data yg dihapus
 def menghapus():
         while True:
                 try:    # Menghapus data saham berdasarkan ID saham (soft deleted)
-                        id = int(input('\t\t\t=> "Masukkan ID saham yang ingin Anda pilih untuk dihapus: '))
+                        id = int(input('\t\t\t       => Masukkan ID saham yang ingin Anda hapus: '))
                         break
                 except ValueError:
                         print('\n')
@@ -617,7 +671,7 @@ def menghapus():
                         print('\n')
                         print(f'{'Data saham batal dihapus':^100}')
                         print(f'{'*'*3:^100}')
-                        menu_utama()
+                        menu_utama(Pengguna)
         else:
                 print('\n')
                 print(f'{'Data Saham Tidak Ditemukan':^100}')
@@ -661,7 +715,7 @@ def hapusPermanen():
                         print('\n')
                         print(f'{'Data saham batal dihapus':^100}')
                         print(f'{'*'*3:^100}')
-                        menu_utama()
+                        menu_utama(Pengguna)
         else:
                 print(f'{'Data Saham Tidak Ditemukan':^100}')
                 print(f'{'*'*3:^100}')
@@ -720,7 +774,7 @@ def pulihkanData():
                         else:
                                 print(f'{'\nData Saham Batal Dipulihkan':^100}')
                                 print(f'{'*'*3:^100}')
-                                menu_utama() # Panggil menu utama jika tidak jadi dipulihkan
+                                menu_utama(Pengguna) # Panggil menu utama jika tidak jadi dipulihkan
                         
                 else:
                         print(f'{'Data Saham Tidak Ditemukan':^100}')
@@ -731,7 +785,7 @@ def pulihkanData():
 # tampilan menu untuk menghapus data  
 def hapusData():
         while True:
-                os.system('cls')                
+                # os.system('cls')                
                 print('\r\n')
                 print('='*110)
                 print(f'{'SISTEM MANAJEMEN DATA SAHAM KONOHA':^100}')
@@ -761,7 +815,7 @@ def hapusData():
                         riwayat_hapus()
                         pulihkanData()
                 elif menuHapus == '5':
-                        menu_utama()
+                        break
                 else: 
                         print('\n')
                         print(f'{'Silahkan pilih menu yang ingin dijalankan':^100}')
@@ -774,7 +828,7 @@ def hapusData():
 # tampilan menu untuk keluar dari pemrograman
 def keluarSistem ():
         while True:
-                os.system('cls')                
+                # os.system('cls')                
                 print('\r\n')
                 print('='*110)
                 print(f'{'SISTEM MANAJEMEN DATA SAHAM KONOHA':^100}')
@@ -792,16 +846,17 @@ def keluarSistem ():
 
                 if menuKeluar == '1': 
                         print('\n')
-                        print(f'{'TERIMA KASIH...😊':^100}')
+                        print(f'{'TERIMA KASIH...':^100}')
                         print(f'{'*'*3:^100}')
                         print('\n')
-                        exit()
+                        user()
                 elif menuKeluar == '2':
-                        menu_utama()
+                        break
                 else:
                         print('\n')
                         print(f'{'Pilihan Anda tidak valid.':^100}')
                         print(f'{'*'*3:^100}')
                         input(f'{'Tekan Enter untuk melanjutkan..':^99}')
 
-menu_utama()
+user()
+# menu_utama(user)
