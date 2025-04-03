@@ -53,7 +53,7 @@ Untuk memulai dengan proyek ini, ikuti langkah-langkah di bawah ini:
    python stock_cli.py
 
 ## Penulis
-- Nama: Ahmad Faik
+- Nama: Ahmad Faik Setiawan
 - Email: faiquc29@gmail.com
 
 
