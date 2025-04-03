@@ -3,28 +3,28 @@
 Sebuah aplikasi CRUD sederhana yang dirancang untuk membantu pengguna dalam mengakses data terkait dengan saham di pasar saham.
 Aplikasi ini memungkinkan pengguna untuk mendapatkan informasi saham secara mudah dan cepat melalui terminal atau command line.
 Bahkan pengguna dapat menambahkan data saham baru ke dalam sistem, menghapus data saham dari sistem, dan juga memperbarui data saham
-secara real-time.
+secara cepat dan efektif.
 
 ## Fitur
 
 - **MainMenu**: Menampilkan daftar menu yang ada pada sistem.
-  ![Screenshot 2025-03-29 003822](https://github.com/user-attachments/assets/73dc8dce-c1b6-4c3b-b423-b047440f90fc)
+![image](https://github.com/user-attachments/assets/7f38342c-2895-49d8-9498-c9ee2c8a979b)
   
 - **Read**: Menampilkan semua data saham.
             Dan pengguna juga dapat mencari saham berdasarkan ID, kode, atau kategori tertentu.
-  ![Screenshot 2025-03-29 004042](https://github.com/user-attachments/assets/4ecc821c-3f6e-4cba-ba6a-8e0e2e1ed75a)
+![image](https://github.com/user-attachments/assets/8e65cb91-7cb8-4e85-b957-57e80e0821c2)
 
 - **Create**: Menambahkan data saham baru ke dalam sistem.
-  ![Screenshot 2025-03-29 004121](https://github.com/user-attachments/assets/0830788b-91a5-44e8-9672-b28f60773843)
+  ![image](https://github.com/user-attachments/assets/3058bb79-e837-45fe-8261-bf0b9895b887)
 
 - **Update**: Memperbarui data saham yang sudah ada dan menghitung nilai perubahan harga saham.
-  ![Screenshot 2025-03-29 004156](https://github.com/user-attachments/assets/ffda0639-f33e-4880-9939-24478d52e4d6)
+  ![image](https://github.com/user-attachments/assets/a070f0b7-3083-49fd-a98b-ae9fded35e80)
 
 - **Delete**: Menghapus data saham tertentu secara permanen, sementara dan memulihkan data yang sudah dihapus.
-  ![Screenshot 2025-03-29 004220](https://github.com/user-attachments/assets/3fd9f108-b2d8-4009-80c1-ed67c3d18908)
+  ![image](https://github.com/user-attachments/assets/cdd1c15b-1698-4068-a11b-1184e4aff83b)
 
 - **Exit**: Keluar dari sistem.
-  ![image](https://github.com/user-attachments/assets/5f4f9397-1bae-4440-8a61-335355e95162)
+  ![image](https://github.com/user-attachments/assets/88e617c4-8a9b-4c19-98f9-c6267fcb0f75)
 
 - **Output**: Contoh output dari aplikasi ini.
   ![image](https://github.com/user-attachments/assets/b6951521-0d57-413e-8461-bfc1debf36a3)
