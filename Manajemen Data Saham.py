@@ -1,72 +1,72 @@
 from prettytable import PrettyTable
+import os
 
 dataSaham = {}
 dataSaham = { 
-        1 :     {'kode':'AADI',
-                'perusahaan':'Adaro Andalan Indonesia Tbk.', 
-                'hargaPembukaan':6550,
-                'hargaPenutupan':6800,
-                'perubahan':3.82, 
-                'nilai':44460882500, 
-                'hapus':False},
+        1 : {'kode':'AADI',
+             'perusahaan':'Adaro Andalan Indonesia Tbk.', 
+             'hargaPembukaan':6550,
+             'hargaPenutupan':6800,
+             'perubahan':3.82, 
+             'nilai':44460882500, 
+             'hapus':False},
 
-        2 :     {'kode':'AALI',
-                'perusahaan':'Astra Agro Lestari Tbk.', 
-                'hargaPembukaan':5675,
-                'hargaPenutupan':5550,
-                'perubahan':2.20, 
-                'nilai':3764012500, 
-                'hapus':False},
+        2 : {'kode':'AALI',
+             'perusahaan':'Astra Agro Lestari Tbk.', 
+             'hargaPembukaan':5675,
+             'hargaPenutupan':5550,
+             'perubahan':2.20, 
+             'nilai':3764012500, 
+             'hapus':False},
 
-        3 :     {'kode':'BBCA',
-                'perusahaan':'Bank Central Asia Tbk.',
-                'hargaPembukaan':8275,
-                'hargaPenutupan':7900,
-                'perubahan':-4.53,
-                'nilai':736670570000,
-                'hapus':False},
+        3 : {'kode':'BBCA',
+             'perusahaan':'Bank Central Asia Tbk.',
+             'hargaPembukaan':8275,
+             'hargaPenutupan':7900,
+             'perubahan':-4.53,
+             'nilai':736670570000,
+             'hapus':False},
 
-        4:      {'kode':'BBRI',
-                'perusahaan':'Bank Rakyat Indonesia (Persero) Tbk.', 
-                'hargaPembukaan':3930,
-                'hargaPenutupan':5550,
-                'perubahan':41.23, 
-                'nilai':941219074000, 
-                'hapus':False},
+        4: {'kode':'BBRI',
+            'perusahaan':'Bank Rakyat Indonesia (Persero) Tbk.', 
+            'hargaPembukaan':3930,
+            'hargaPenutupan':5550,
+            'perubahan':41.23, 
+            'nilai':941219074000, 
+            'hapus':False},
                 
-        5 :     {'kode':'BRIS',
-                'perusahaan':'Bank Syariah Indonesia Tbk.', 
-                'hargaPembukaan':2610,
-                'hargaPenutupan':5550,
-                'perubahan':112.22, 
-                'nilai':85977800000, 
-                'hapus':False},
+        5 : {'kode':'BRIS',
+             'perusahaan':'Bank Syariah Indonesia Tbk.', 
+             'hargaPembukaan':2610,
+             'hargaPenutupan':5550,
+             'perubahan':112.22, 
+             'nilai':85977800000, 
+             'hapus':False},
 
-        6 :     {'kode':'BMRI',
-                'perusahaan':'Bank Mandiri (Persero) Tbk.', 
-                'hargaPembukaan':4870,
-                'hargaPenutupan':5550,
-                'perubahan':13.97, 
-                'nilai':570806151000, 
-                'hapus':False},
+        6 : {'kode':'BMRI',
+             'perusahaan':'Bank Mandiri (Persero) Tbk.', 
+             'hargaPembukaan':4870,
+             'hargaPenutupan':5550,
+             'perubahan':13.97, 
+             'nilai':570806151000, 
+             'hapus':False},
         
-        7 :     {'kode':'GOTO',
-                'perusahaan':'GoTo Gojek Tokopedia Tbk.', 
-                'hargaPembukaan':81,
-                'hargaPenutupan':81,
-                'perubahan':0.00, 
-                'nilai':436906658200, 
-                'hapus':False},
+        7 : {'kode':'GOTO',
+             'perusahaan':'GoTo Gojek Tokopedia Tbk.', 
+             'hargaPembukaan':81,
+             'hargaPenutupan':81,
+             'perubahan':0.00, 
+             'nilai':436906658200, 
+             'hapus':False},
 
-        8 :     {'kode':'TLKM',
-                'perusahaan':'Telkom Indonesia (Persero) Tbk.', 
-                'hargaPembukaan':2430,
-                'hargaPenutupan':5550,
-                'perubahan':128.57, 
-                'nilai':439964438000, 
-                'hapus':False}}
+        8 : {'kode':'TLKM',
+             'perusahaan':'Telkom Indonesia (Persero) Tbk.', 
+             'hargaPembukaan':2430,
+             'hargaPenutupan':5550,
+             'perubahan':128.57, 
+             'nilai':439964438000, 
+             'hapus':False}}
 
-import os
 # tampilan menu utama 
 def menu_utama():
         while True:
@@ -227,19 +227,19 @@ def tampilkanData():
                 print(f'{'SISTEM MANAJEMEN DATA SAHAM KONOHA':^100}')
                 print('='*110)
 
-                menuCari =  input('''
-                            =============================================
-                                   ***  Data Saham Konoha 2025 ***
-                            =============================================
-                            Daftar Menu:
-                            ============================================= 
-                            [1] Menampilkan Semua Data Saham 
-                            [2] Menampilkan Data Saham Berdasarkan ID
-                            [3] Menampilkan Data Saham Berdasarkan Kode
-                            [4] Menampilkan Data Saham Berdasarkan harga
-                            [5] Kembali ke Menu Utama  
-                            ============================================= 
-                            => Pilih menu yang ingin Anda akses : ''')
+                menuCari = input('''
+                           =============================================
+                                  ***  Data Saham Konoha 2025 ***
+                           =============================================
+                           Daftar Menu:
+                           ============================================= 
+                           [1] Menampilkan Semua Data Saham 
+                           [2] Menampilkan Data Saham Berdasarkan ID
+                           [3] Menampilkan Data Saham Berdasarkan Kode
+                           [4] Menampilkan Data Saham Berdasarkan harga
+                           [5] Kembali ke Menu Utama  
+                           ============================================= 
+                           => Pilih menu yang ingin Anda akses : ''')
 
                 if menuCari == '1': # Menampilkan semua data saham
                         if len(dataSaham) > 0: 
