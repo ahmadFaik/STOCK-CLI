@@ -98,7 +98,7 @@ def menu_utama():
                 elif Menu_Utama == '4':
                         hapusData()
                 elif Menu_Utama == '5':
-                        keluarProgram()
+                        keluarSistem()
                 else:
                         print('\n')
                         print(f'{'Silahkan pilih menu yang ingin dijalankan':^100}')
@@ -772,7 +772,7 @@ def hapusData():
 # ********** EXIT **********
 # ****************************
 # tampilan menu untuk keluar dari pemrograman
-def keluarProgram ():
+def keluarSistem ():
         while True:
                 os.system('cls')                
                 print('\r\n')
