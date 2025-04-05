@@ -8,7 +8,7 @@ secara cepat dan efektif.
 ## Fitur
 
 - **LoginUser**: Mendeteksi identitas pengguna untuk mengakses sistem.
-                      <br>Dan menampilkan menu utama yang dapat diakses sesuai identitas pengguna.
+      <br>Dan menampilkan menu utama yang dapat diakses sesuai identitas pengguna.
   ![image](https://github.com/user-attachments/assets/b4bd9971-644e-4fe2-95e3-4ba4b7fc3f28)
   ![image](https://github.com/user-attachments/assets/1a20d9d8-4f67-4313-be35-2153ac8e1d6c)
 
