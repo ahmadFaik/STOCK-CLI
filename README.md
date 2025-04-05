@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/1976c869-4e0c-424b-b7f6-f6bbf4534eb6)# SISTEM MANAJEMEN DATA SAHAM KONOHA
+# SISTEM MANAJEMEN DATA SAHAM KONOHA
 
 Sebuah aplikasi CRUD sederhana yang dirancang untuk membantu pengguna dalam mengakses data terkait dengan saham di pasar saham.
 Aplikasi ini memungkinkan pengguna untuk mendapatkan informasi saham secara mudah dan cepat melalui terminal atau command line.
