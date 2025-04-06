@@ -40,7 +40,6 @@ secara cepat dan efektif.
 
 ## Flow Chart
 ![Flowchart Preview](https://drive.google.com/uc?id=1JGGydLdg9iY0Jf59v4uVV_S0FzrIBFbK)
-![Flowchart Preview](https://drive.google.com/file/d/1JGGydLdg9iY0Jf59v4uVV_S0FzrIBFbK/view?usp=sharing)
 
 ## Instalasi
 
