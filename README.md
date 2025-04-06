@@ -37,9 +37,9 @@ secara cepat dan efektif.
 
 - **Output**: Contoh output dari aplikasi ini.
   ![image](https://github.com/user-attachments/assets/9ca0860d-3bd8-43a0-9b8c-ddf84db770f4)
-
-## Flow Chart
-![Flowchart Preview](https://drive.google.com/uc?id=1JGGydLdg9iY0Jf59v4uVV_S0FzrIBFbK)
+  
+- **Lihat Alur Proyek**:  
+Untuk memahami alur dari sistem manajemen data saham, cek **[Flowchart Proyek](https://drive.google.com/file/d/1JGGydLdg9iY0Jf59v4uVV_S0FzrIBFbK/view?usp=sharing)**. 
 
 ## Instalasi
 
