@@ -7,27 +7,37 @@ secara cepat dan efektif.
 
 ## Fitur
 
-- **MainMenu**: Menampilkan daftar menu yang ada pada sistem.
-![image](https://github.com/user-attachments/assets/7f38342c-2895-49d8-9498-c9ee2c8a979b)
-  
+- **LoginUser**: Mendeteksi identitas pengguna untuk mengakses sistem.
+                 <br>Dan menampilkan menu utama yang dapat diakses sesuai identitas pengguna.
+  ![image](https://github.com/user-attachments/assets/b4bd9971-644e-4fe2-95e3-4ba4b7fc3f28)
+  ![image](https://github.com/user-attachments/assets/1a20d9d8-4f67-4313-be35-2153ac8e1d6c)
+
+- **MainMenu**: Menampilkan daftar menu utama yang ada pada sistem.
+  <br>**MenuAdmin**
+  ![image](https://github.com/user-attachments/assets/83198d00-5812-4fb9-b1fc-644b2faa893f)
+
+  **MenuInvestor**
+  ![image](https://github.com/user-attachments/assets/8c1f4f75-cf1b-441f-8c7e-9088dab4af77)
+
 - **Read**: Menampilkan semua data saham.
-            Dan pengguna juga dapat mencari saham berdasarkan ID, kode, atau kategori tertentu.
-![image](https://github.com/user-attachments/assets/8e65cb91-7cb8-4e85-b957-57e80e0821c2)
+            <br>Dan pengguna juga dapat mencari saham berdasarkan ID, kode, atau kategori tertentu.
+  ![image](https://github.com/user-attachments/assets/f1c78bad-b0a3-43a3-802a-f616862cbd55)
 
 - **Create**: Menambahkan data saham baru ke dalam sistem.
-  ![image](https://github.com/user-attachments/assets/3058bb79-e837-45fe-8261-bf0b9895b887)
+  ![image](https://github.com/user-attachments/assets/13e8ecdb-4a1e-47b1-9826-57d20db52303)
 
 - **Update**: Memperbarui data saham yang sudah ada dan menghitung nilai perubahan harga saham.
-  ![image](https://github.com/user-attachments/assets/a070f0b7-3083-49fd-a98b-ae9fded35e80)
+  ![image](https://github.com/user-attachments/assets/a23853e6-ebdc-4d2f-9fc8-a1eb40ea781d)
 
 - **Delete**: Menghapus data saham tertentu secara permanen, sementara dan memulihkan data yang sudah dihapus.
-  ![image](https://github.com/user-attachments/assets/cdd1c15b-1698-4068-a11b-1184e4aff83b)
+  ![image](https://github.com/user-attachments/assets/0ecad9dd-f3bf-41e3-820e-1c0e62e17e50)
 
 - **Exit**: Keluar dari sistem.
-  ![image](https://github.com/user-attachments/assets/88e617c4-8a9b-4c19-98f9-c6267fcb0f75)
+  ![image](https://github.com/user-attachments/assets/e5adcaea-2a15-4bec-b802-b9fd3d8a66e2)
 
 - **Output**: Contoh output dari aplikasi ini.
-  ![image](https://github.com/user-attachments/assets/b6951521-0d57-413e-8461-bfc1debf36a3)
+  ![image](https://github.com/user-attachments/assets/9ca0860d-3bd8-43a0-9b8c-ddf84db770f4)
+
 
 ## Instalasi
 
