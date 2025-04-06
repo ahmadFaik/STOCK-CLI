@@ -95,7 +95,7 @@ def login():
                 if daftar_pengguna.get(username) ==  password:
                         return username
                 else:
-                        print('\nNama pengguna atau kata sandi yang Anda masukkan salah. Silakan coba lagi.\n')
+                        print('\nStatus pengguna atau kata sandi yang Anda masukkan salah. Silakan coba lagi.\n')
 
 # Proses login dan menampilkan menu berdasarkan status pengguna
 def user():
@@ -105,7 +105,7 @@ def user():
                 print(f'\nLogin berhasil! Anda adalah seorang {pengguna.capitalize()}.')
                 menu_utama(pengguna)
         else:
-                print('\nLogin tidak berhasil! Silahkan coba lagi.')   
+                print('\nStatus pengguna atau kata sandi yang Anda masukkan salah. Silakan coba lagi.\n')
 
 # tampilan menu utama 
 def menu_utama(pengguna):
@@ -141,7 +141,7 @@ def menu_utama(pengguna):
                                 keluarSistem()
                         else:
                                 print('\n')
-                                print(f"{'Silahkan pilih menu yang ingin dijalankan':^100}")
+                                print(f"{'Opsi yang Anda pilih tidak tersedia. Pilih menu yang valid dan coba lagi.':^100}")
                                 print(f"{'*'*3:^100}")
                                 input(f"{'Tekan Enter untuk melanjutkan..':^99}")
                 
@@ -168,7 +168,7 @@ def menu_utama(pengguna):
                                 keluarSistem()
                         else:
                                 print('\n')
-                                print(f"{'Silahkan pilih menu yang ingin dijalankan':^100}")
+                                print(f"{'Opsi yang Anda pilih tidak tersedia. Pilih menu yang valid dan coba lagi.':^100}")
                                 print(f"{'*'*3:^100}")
                                 input(f"{'Tekan Enter untuk melanjutkan..':^99}")                             
 
@@ -226,7 +226,6 @@ def filterId():
                 print(Tabel)
                 input('=> Tekan Enter untuk melanjutkan..')
         else:
-                print('\n')
                 print(f"{'Data dengan ID yang Anda masukkan tidak terdeteksi. Pastikan ID benar.':^100}")
                 print(f"{'*'*3:^100}")
                 input(f"{'Tekan Enter untuk melanjutkan..':^99}")
@@ -349,8 +348,6 @@ def cekHargaPembukaan():
                                 print('\nMaaf, harga yang Anda masukkan tidak valid. Pastikan harga lebih dari 0.\n')  
                         else:
                                 return hargaPembukaan
-                except IndexError:
-                        print('\nMaaf, harga yang Anda masukkan tidak valid. Pastikan harga berupa angka dan coba lagi.\n')
                 except ValueError:
                         print('\nMaaf, harga yang Anda masukkan tidak valid. Pastikan harga berupa angka dan coba lagi.\n')
 
@@ -362,8 +359,6 @@ def cekHargaPenutupan():
                                 print('\nMaaf, harga yang Anda masukkan tidak valid. Pastikan harga lebih dari 0.\n')  
                         else:
                                 return hargaPenutupan
-                except IndexError:
-                        print('\nMaaf, harga yang Anda masukkan tidak valid. Pastikan harga berupa angka dan coba lagi.\n')
                 except ValueError:
                         print('\nMaaf, harga yang Anda masukkan tidak valid. Pastikan harga berupa angka dan coba lagi.\n')
 
@@ -373,7 +368,7 @@ def cekPerubahan(hargaPembukaan, hargaPenutupan):
         # Menghitung persentase perubahan harga saham
         perubahan = ((hargaPenutupan - hargaPembukaan) / hargaPembukaan) * 100
         return perubahan
-
+        
 def cekNilai():
         while True:
                 try:    # User menambahkan nilai transaksi saham
@@ -382,10 +377,8 @@ def cekNilai():
                                 print('\nMaaf, nilai transaksi saham yang Anda masukkan tidak valid. Pastikan nilai transaksi lebih dari 0.\n') 
                         else:
                                 return nilai
-                except IndexError:
-                        print('\nMaaf, nilai transaksi saham yang Anda masukkan tidak valid. Pastikan nilai berupa angka dan coba lagi.\n')
                 except ValueError:
-                        print('\nNilai transaksi saham yang anda masukkan tidak valid\n')
+                        print('\nMaaf, nilai transaksi saham yang Anda masukkan tidak valid. Pastikan nilai berupa angka dan coba lagi.\n')
 
 def menambahkan():
         while True:
@@ -401,7 +394,7 @@ def menambahkan():
         
         if idSaham in dataSaham: 
                 print('\nID yang Anda masukkan sudah terdaftar dalam data. Silahkan coba ID baru.\n')
-                saham = dataSaham[ID]
+                saham = dataSaham[idSaham]
                 Tabel = PrettyTable()
                 Tabel.field_names = ['ID', 'Kode Saham', 'Nama Perusahaan', 'Harga Pembukaan', 'Harga Penutupan', 'Perubahan Harga', 'Nilai Transaksi']
                 Tabel.title = 'RINGKASAN PASAR SAHAM KONOHA 2025'
@@ -409,7 +402,7 @@ def menambahkan():
                 harga_penutupan = nominal(saham['hargaPenutupan'])
                 perubahan_harga = presentase(saham['perubahan'])
                 nilai_transaksi = nominal(saham['nilai'])
-                Tabel.add_row([ID, saham['kode'], saham['perusahaan'], harga_pembukaan, harga_penutupan, perubahan_harga, nilai_transaksi])
+                Tabel.add_row([idSaham, saham['kode'], saham['perusahaan'], harga_pembukaan, harga_penutupan, perubahan_harga, nilai_transaksi])
                 print(Tabel)
         else:   # User menambahkan kode saham baru
                 kode = cekKode()
@@ -453,8 +446,10 @@ def menambahkan():
                         else:        
                                 hargaPembukaan = cekHargaPembukaan() # User menambahkan harga prmbukaan saham baru
                                 hargaPenutupan = cekHargaPenutupan() # User menambahkan harga penutupan saham baru
-                                perubahanHarga = cekPerubahan(hargaPembukaan, hargaPenutupan) # Menampilkan nilai perubahan harga saham
+                                perubahanHarga = cekPerubahan(hargaPembukaan, hargaPenutupan)# Menampilkan nilai perubahan harga saham
+                                print(f'Pergerakan Harga\t\t: {presentase(perubahanHarga)}')
                                 nilai = cekNilai() # User menambahkan total nilai transaksi saham tersebut
+
                                 # Menampung & menampilkan data baru yg ditambahkan 
                                 print('\nData Baru:')
                                 dataSaham[idSaham] = {
@@ -475,7 +470,7 @@ def menambahkan():
                                 Tabel.add_row([idSaham, kode, perusahaan, harga_pembukaan, harga_penutupan, perubahan_harga, nilai_transaksi])
                                 print(Tabel)
                                         
-                                simpan = input('''=> Pastikan data yang Anda masukkan sudah benar.\n   Apakan Anda ingin menyimpan data baru tersebut? (Ya/Tidak): ''').capitalize()
+                                simpan = input('=> Pastikan data yang Anda masukkan sudah benar.\n   Apakah Anda ingin menyimpan data baru tersebut? (Ya/Tidak): ').capitalize()
                                 if simpan == 'Ya':
                                         print(f"=> Data saham berhasil ditambahkan.")
                                         menampilkan()
@@ -503,11 +498,7 @@ def tambahData():
                                => Pilih menu yang ingin Anda akses : ''')
 
                 if menuTambah == '1': # Menambahkan data saham baru 
-                        if len(dataSaham) > 0:
-                                menambahkan() 
-                        else:
-                                print(f"{'Data Saham Tidak Ditemukan':^100}")
-                                print(f"{'*'*3:^100}")
+                        menambahkan() 
                 elif menuTambah == '2':
                         break
                 else:
@@ -591,7 +582,7 @@ def memperbarui():
                                         else:
                                                 print('\nHarga tidak mengalami perubahan\n')
                                 else:
-                                        print('\nNilai perubahan tidak dapat dihitung. Pastikan Anda memasukkan data dengan benar.\n')
+                                        print('\nNilai perubahan tidak dapat dihitung. Pastikan Anda memasukkan data dengan benar.\n') 
                         elif kolom == '6': # Memperbarui nilai transaksi saham
                                 Nilai = cekNilai()
                                 Nilai = nominal(Nilai)
@@ -612,7 +603,8 @@ def memperbarui():
                         ubahData()
                 
         else:
-                print(f"{'\nData dengan ID yang Anda masukkan tidak terdeteksi. Pastikan ID benar.':^100}")
+                print('\n')
+                print(f"{'Data dengan ID yang Anda masukkan tidak terdeteksi. Pastikan ID benar.':^100}")
                 print(f"{'*'*3:^100}")
 
         input(f"{'Tekan Enter untuk melanjutkan..':^99}")
@@ -625,7 +617,7 @@ def ubahData():
                 print(f"{'SISTEM MANAJEMEN DATA SAHAM KONOHA':^100}")
                 print('='*110)
 
-                menuUpdate =   input('''
+                menuPerbarui =   input('''
                                =======================================
                                   *** Pembaruan Data Saham 2025 ***
                                =======================================
@@ -636,10 +628,10 @@ def ubahData():
                                =======================================
                                => Pilih menu yang ingin Anda akses : ''')
                 
-                if menuUpdate == '1':
+                if menuPerbarui == '1':
                         memperbarui() # Memperbarui data saham berdasarkan ID saham
                         menampilkan()
-                elif menuUpdate == '2':
+                elif menuPerbarui == '2':
                         break
                 else:
                         print('\n')
@@ -689,7 +681,7 @@ def menghapus():
                         print('\n')
                         print(f"{'Data saham batal dihapus':^100}")
                         print(f"{'*'*3:^100}")
-                        menu_utama(pengguna)
+
         else:
                 print('\n')
                 print(f"{'Data Saham Tidak Ditemukan':^100}")
@@ -724,15 +716,14 @@ def hapusPermanen():
                 konfirmasi = input('Apakah ingin melanjutkan menghapus data saham secara permanen (Ya/Tidak)?: ').capitalize()
                 if konfirmasi == 'Ya':
                         del dataSaham[idSaham]
-                        menampilkan()
                         print('\n')
-                        print(f"{'Data saham batal dihapus':^100}")
+                        print(f"{'Data saham berhasil dihapus':^100}")
                         print(f"{'*'*3:^100}")
+                        menampilkan()
                 else:
                         print('\n')
                         print(f"{'Data saham batal dihapus':^100}")
                         print(f"{'*'*3:^100}")
-                        menu_utama(pengguna)
         else:
                 print(f"{'Data Saham Tidak Ditemukan':^100}")
                 print(f"{'*'*3:^100}")
@@ -785,12 +776,10 @@ def pulihkanData():
                                 del recycle_bin[idSaham]
                                 print('\nData Saham Berhasil Dipulihkan')
                                 menampilkan()  # Menampilkan data yang sudah dipulihkan
-                                # input('=> Tekan Enter untuk melanjutkan..')
                                 
                         else:
                                 print(f"{'\nData Saham Batal Dipulihkan':^100}")
                                 print(f"{'*'*3:^100}")
-                                menu_utama(pengguna) # Panggil menu utama jika tidak jadi dipulihkan
                         
                 else:
                         print(f"{'Data Saham Tidak Ditemukan':^100}")
@@ -799,8 +788,8 @@ def pulihkanData():
 
 # tampilan menu untuk menghapus data  
 def hapusData():
-        while True: 
-                bersihkan_layar()              
+        bersihkan_layar() 
+        while True:              
                 print('\n')
                 print('='*110)
                 print(f"{'SISTEM MANAJEMEN DATA SAHAM KONOHA':^100}")
@@ -864,7 +853,7 @@ def keluarSistem ():
                         print(f"{'TERIMA KASIH...':^100}")
                         print(f"{'*'*3:^100}")
                         print('\n')
-                        user()
+                        exit()
                 elif menuKeluar == '2':
                         break
                 else:
