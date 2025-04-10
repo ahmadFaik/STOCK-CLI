@@ -115,6 +115,7 @@ def login():
 
 # tampilan menu utama 
 def menu_utama(pengguna):
+        bersihkan_layar()
         while True:
                 if pengguna == 'admin':
                         print('\n')
