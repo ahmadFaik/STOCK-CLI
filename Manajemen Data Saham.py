@@ -1,5 +1,5 @@
 from prettytable import PrettyTable
-import os
+import getpass
 
 dataSaham = []
 dataSaham = [
@@ -84,40 +84,17 @@ dataSaham = [
         'hapus':False}
         ]
 
-def bersihkan_layar():
-        if os.name == 'nt':
-                os.system('cls') # Windows
-        else:
-                os.system('clear') # Linux/macOS
+# Login sebagai admin 
+def admin():
+        pengguna = input('\t\t\t\t=> Masukkan kata sandi : ').strip().upper()
+        if pengguna == 'ADMINSAHAM':
+                return True
+        return False
 
-def login():
+# Tampilan menu utama 
+def menu_utama(pengguna='investor'):
         while True:
-                bersihkan_layar()
-                print('='*110)
-                print(f"{'SELAMAT DATANG DI':^100}")
-                print(f"{'SISTEM MANAJEMEN DATA SAHAM KONOHA':^100}")
-                print('='*110)
-                
-                daftar_pengguna = {
-                        'admin' : 'admin29',
-                        'investor' : 'investor29'
-                }
-
-                # Login pengguna
-                username = input('Status Pengguna : ')
-                password = input(f'Kata Sandi\t: ')
-                input('Tekan Enter untuk melanjutkan..')
-
-                if daftar_pengguna.get(username) ==  password:
-                        return username
-                else:
-                        print('\nStatus pengguna atau kata sandi yang Anda masukkan salah. Silakan coba lagi.\n')
-
-# tampilan menu utama 
-def menu_utama(pengguna):
-        bersihkan_layar()
-        while True:
-                if pengguna == 'admin':
+                if pengguna == 'admin': # Menu Admin
                         print('\n')
                         print('='*110)
                         print(f"{'SISTEM MANAJEMEN DATA SAHAM KONOHA':^100}")
@@ -138,7 +115,7 @@ def menu_utama(pengguna):
                                 => Pilih menu yang ingin Anda akses : ''')
 
                         if menu_admin == '1':
-                                tampilkanData()
+                                tampilkanData('admin')
                         elif menu_admin == '2':
                                 tambahData()
                         elif menu_admin == '3':
@@ -146,14 +123,14 @@ def menu_utama(pengguna):
                         elif menu_admin == '4':
                                 hapusData()
                         elif menu_admin == '5':
-                                keluarSistem(pengguna)
+                                keluarSistem('admin')
                         else:
                                 print('\n')
                                 print(f"{'Opsi yang Anda pilih tidak tersedia. Pilih menu yang valid dan coba lagi.':^100}")
                                 print(f"{'*'*3:^100}")
                                 input(f"{'Tekan Enter untuk melanjutkan..':^99}")
                 
-                elif pengguna == 'investor':
+                else: # Menu Investor
                         print('\n')
                         print('='*110)
                         print(f"{'SISTEM MANAJEMEN DATA SAHAM KONOHA':^100}")
@@ -166,7 +143,8 @@ def menu_utama(pengguna):
                                 Daftar Menu Utama: 
                                 =====================================
                                 [1] Menampilkan Data Saham 
-                                [2] Keluar            
+                                [2] Keluar
+                                [3] Login admin            
                                 ======================================
                                 => Pilih menu yang ingin Anda akses : ''')
                         
@@ -174,7 +152,11 @@ def menu_utama(pengguna):
                                 tampilkanData()
 
                         elif menu_investor== '2':
-                                keluarSistem(pengguna)
+                                keluarSistem()
+                        elif menu_investor=='3':
+                                if admin():
+                                        menu_utama('admin')
+                                else: continue
                         else:
                                 print('\n')
                                 print(f"{'Opsi yang Anda pilih tidak tersedia. Pilih menu yang valid dan coba lagi.':^100}")
@@ -250,19 +232,20 @@ def filterKode():
                         break   
         
         if not cariKode:
-                print(f"{'Data dengan kode {kodeSaham} yang Anda masukkan tidak terdeteksi. Pastikan kode saham benar!':^100}")
-                print(f"{'*'*3:^100}")
-                input(f"{'Tekan Enter untuk melanjutkan..':^99}")
+                print(f'Data dengan kode {kodeSaham} yang Anda masukkan tidak terdeteksi. Pastikan kode saham benar!')
+                print('\n')
+                input('=> Tekan Enter untuk melanjutkan..')
 
 def filterHarga():
         while True: 
                 try:
-                        harga = int(input('\t\t\t   => Masukkan harga saham yang ingin ditampilkan: '))
+                        harga = int(input('\t\t\t=> Masukkan harga saham yang ingin ditampilkan: '))
                         break
                 except ValueError:
                         print('\n')
                         print(f"{'Maaf, harga saham yang Anda masukkan tidak valid. Pastikan harga berupa angka dan coba lagi.':^100}")
                         print(f"{'*'*3:^100}")
+                        tampilkanData()
         
         print('\n')
         cariHarga = False
@@ -292,7 +275,7 @@ def filterHarga():
                 print(f"{'*'*3:^100}")
                 input(f"{'Tekan Enter untuk melanjutkan..':^99}")
 
-def tampilkanData():
+def tampilkanData(pengguna='investor'):
         while True:
                 print('\n')
                 print('='*110)
@@ -320,7 +303,7 @@ def tampilkanData():
                 elif menuCari == '3': # Menampilkan data saham berdasarkan harga pembukaan atau penutupan saham
                         filterHarga()
                 elif menuCari == '4': # Kembali ke menu utama 
-                        break
+                        menu_utama(pengguna)
                 else:
                         print('\n')
                         print(f"{'Opsi yang Anda pilih tidak tersedia. Pilih menu yang valid dan coba lagi.':^100}")
@@ -340,7 +323,7 @@ def cekPerusahaan():
                         return perusahaan.title()
                 else:
                         print('\n')
-                        print("Nama perusahaan hanya boleh mengandung huruf, spasi dan harus empat kata. Silakan coba lagi.")
+                        print("Nama perusahaan hanya boleh mengandung huruf, spasi dan harus empat kata. Silahkan coba lagi.")
                         print('\n')
 
 def konfersiKode(pt):
@@ -512,7 +495,7 @@ def tambahData():
                 if menuTambah == '1': # Menambahkan data saham baru 
                         menambahkan() 
                 elif menuTambah == '2':# Kembali ke menu utama
-                        break
+                        menu_utama('admin')
                 else:
                         print('\n')
                         print(f"{'Opsi yang Anda pilih tidak tersedia. Pilih menu yang valid dan coba lagi.':^100}")
@@ -676,7 +659,6 @@ def perbaruiData():
                         memperbarui() # Memperbarui data saham berdasarkan kode saham
                         break
                 elif menuPerbarui == '2':
-                        menu_utama('admin')
                         break
                 else:
                         print('\n')
@@ -935,9 +917,7 @@ def hapusData():
 # ****************************
 
 # tampilan menu untuk keluar dari pemrograman
-def keluarSistem (pengguna):
-        bersihkan_layar()
-
+def keluarSistem (pengguna='investor'):
         while True:
                 print('\n')
                 print('='*110)
@@ -969,16 +949,5 @@ def keluarSistem (pengguna):
                         print(f"{'*'*3:^100}")
                         input(f"{'Tekan Enter untuk melanjutkan..':^99}")
 
-# Proses login dan menampilkan menu berdasarkan status pengguna
-def user():
-        pengguna = login() 
-
-        if pengguna: 
-                print(f'\nLogin berhasil! Anda adalah seorang {pengguna.capitalize()}.')
-                menu_utama(pengguna)
-        else:
-                print('\nStatus pengguna atau kata sandi yang Anda masukkan salah. Silakan coba lagi.\n')
-
-# user()
-menu_utama('admin')
+menu_utama()
 
