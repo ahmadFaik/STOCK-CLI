@@ -20,8 +20,8 @@ secara cepat dan efektif.
   ![image](https://github.com/user-attachments/assets/8c1f4f75-cf1b-441f-8c7e-9088dab4af77)
 
 - **Read**: Menampilkan semua data saham.
-            <br>Dan pengguna juga dapat mencari saham berdasarkan ID, kode, atau kategori tertentu.
-  ![image](https://github.com/user-attachments/assets/f1c78bad-b0a3-43a3-802a-f616862cbd55)
+            <br>Dan pengguna juga dapat mencari saham berdasarkan kode saham, harga pembukaan atau harga penutupan saham.
+  ![image](https://github.com/user-attachments/assets/caf67ba7-936e-42b1-aaa8-23a1e3a6bfe0)
 
 - **Create**: Menambahkan data saham baru ke dalam sistem.
   ![image](https://github.com/user-attachments/assets/13e8ecdb-4a1e-47b1-9826-57d20db52303)
@@ -35,8 +35,9 @@ secara cepat dan efektif.
 - **Exit**: Keluar dari sistem.
   ![image](https://github.com/user-attachments/assets/e5adcaea-2a15-4bec-b802-b9fd3d8a66e2)
 
-- **Output**: Contoh output dari aplikasi ini.
-  ![image](https://github.com/user-attachments/assets/9ca0860d-3bd8-43a0-9b8c-ddf84db770f4)
+- **Output**: Contoh output menampilkan semua data dari aplikasi ini.
+  ![image](https://github.com/user-attachments/assets/513af3c6-010e-4b3a-989c-333e8287007d)
+
   
 ## Flowchart
 📊 **Lihat Alur Proyek**:  
