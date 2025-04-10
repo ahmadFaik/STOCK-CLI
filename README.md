@@ -6,18 +6,16 @@ Bahkan pengguna dapat menambahkan data saham baru ke dalam sistem, menghapus dat
 secara cepat dan efektif.
 
 ## Fitur
-
-- **LoginUser**: Mendeteksi identitas pengguna untuk mengakses sistem.
-                 <br>Dan menampilkan menu utama yang dapat diakses sesuai identitas pengguna.
-  ![image](https://github.com/user-attachments/assets/b4bd9971-644e-4fe2-95e3-4ba4b7fc3f28)
-  ![image](https://github.com/user-attachments/assets/1a20d9d8-4f67-4313-be35-2153ac8e1d6c)
-
 - **MainMenu**: Menampilkan daftar menu utama yang ada pada sistem.
+  **MenuInvestor**
+  ![image](https://github.com/user-attachments/assets/a5c01041-4d51-40fa-b47f-97d67957c79d)
+  
+- **LoginAdmin**: Mendeteksi identitas pengguna untuk mengakses sistem sebagai admin.
+                 <br>Dan menampilkan menu utama yang dapat hanya bisa diakses oleh admin.
+  ![image](https://github.com/user-attachments/assets/c4fd5dd9-29be-40a3-82f3-68919d9c8b2f)
+  
   <br>**MenuAdmin**
   ![image](https://github.com/user-attachments/assets/83198d00-5812-4fb9-b1fc-644b2faa893f)
-
-  **MenuInvestor**
-  ![image](https://github.com/user-attachments/assets/8c1f4f75-cf1b-441f-8c7e-9088dab4af77)
 
 - **Read**: Menampilkan semua data saham.
             <br>Dan pengguna juga dapat mencari saham berdasarkan kode saham, harga pembukaan atau harga penutupan saham.
