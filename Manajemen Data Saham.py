@@ -1,5 +1,4 @@
 from prettytable import PrettyTable
-import getpass
 
 dataSaham = []
 dataSaham = [
