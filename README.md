@@ -40,7 +40,7 @@ secara cepat dan efektif.
   
 ## Flowchart
 📊 **Lihat Alur Proyek**:  
-Untuk memahami alur dari sistem manajemen data saham, cek **[Flowchart Proyek](https://drive.google.com/file/d/1JGGydLdg9iY0Jf59v4uVV_S0FzrIBFbK/view?usp=sharing)**. 
+Untuk memahami alur dari sistem manajemen data saham, cek **[Flowchart Proyek]**. 
 
 ## Instalasi
 
