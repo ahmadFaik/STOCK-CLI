@@ -1,71 +1,88 @@
 from prettytable import PrettyTable
 import os
 
-dataSaham = {}
-dataSaham = { 
-        1 : {'kode':'AADI',
-             'perusahaan':'Adaro Andalan Indonesia Tbk.', 
-             'hargaPembukaan':6550,
-             'hargaPenutupan':6800,
-             'perubahan':3.82, 
-             'nilai':44460882500, 
-             'hapus':False},
+dataSaham = []
+dataSaham = [
+        {'kode':'AADI',
+        'perusahaan':'Adaro Andalan Indonesia Tbk.', 
+        'hargaPembukaan':6550,
+        'hargaPenutupan':6800,
+        'perubahan':3.82, 
+        'nilai':44460882500, 
+        'hapus':False},
 
-        2 : {'kode':'AALI',
-             'perusahaan':'Astra Agro Lestari Tbk.', 
-             'hargaPembukaan':5675,
-             'hargaPenutupan':5550,
-             'perubahan':2.20, 
-             'nilai':3764012500, 
-             'hapus':False},
+        {'kode':'AALI',
+        'perusahaan':'Astra Agro Lestari Tbk.', 
+        'hargaPembukaan':5675,
+        'hargaPenutupan':5550,
+        'perubahan':2.20, 
+        'nilai':3764012500, 
+        'hapus':False},
 
-        3 : {'kode':'BBCA',
-             'perusahaan':'Bank Central Asia Tbk.',
-             'hargaPembukaan':8275,
-             'hargaPenutupan':7900,
-             'perubahan':-4.53,
-             'nilai':736670570000,
-             'hapus':False},
+        {'kode':'BBCA',
+        'perusahaan':'Bank Central Asia Tbk.',
+        'hargaPembukaan':8275,
+        'hargaPenutupan':7900,
+        'perubahan':-4.53,
+        'nilai':736670570000,
+        'hapus':False},
 
-        4: {'kode':'BBRI',
-            'perusahaan':'Bank Rakyat Indonesia (Persero) Tbk.', 
-            'hargaPembukaan':3930,
-            'hargaPenutupan':5550,
-            'perubahan':41.23, 
-            'nilai':941219074000, 
-            'hapus':False},
+        {'kode':'BBRI',
+        'perusahaan':'Bank Rakyat Indonesia (Persero) Tbk.', 
+        'hargaPembukaan':3930,
+        'hargaPenutupan':5550,
+        'perubahan':41.23, 
+        'nilai':941219074000, 
+        'hapus':False},
                 
-        5 : {'kode':'BRIS',
-             'perusahaan':'Bank Syariah Indonesia Tbk.', 
-             'hargaPembukaan':2610,
-             'hargaPenutupan':5550,
-             'perubahan':112.22, 
-             'nilai':85977800000, 
-             'hapus':False},
+        {'kode':'BRIS',
+        'perusahaan':'Bank Syariah Indonesia Tbk.', 
+        'hargaPembukaan':2610,
+        'hargaPenutupan':5550,
+        'perubahan':112.22, 
+        'nilai':85977800000, 
+        'hapus':False},
 
-        6 : {'kode':'BMRI',
-             'perusahaan':'Bank Mandiri (Persero) Tbk.', 
-             'hargaPembukaan':4870,
-             'hargaPenutupan':5550,
-             'perubahan':13.97, 
-             'nilai':570806151000, 
-             'hapus':False},
+        {'kode':'BMRI',
+        'perusahaan':'Bank Mandiri (Persero) Tbk.', 
+        'hargaPembukaan':4870,
+        'hargaPenutupan':5550,
+        'perubahan':13.97, 
+        'nilai':570806151000, 
+        'hapus':False},
+
+        {'kode': 'AAPL', 
+        'perusahaan': 'Apple Inc.', 
+        'hargaPembukaan': 1450, 
+        'hargaPenutupan': 1495, 
+        'perubahan': 3.13, 
+        'nilai': 2469100000000,
+        'hapus': False},
+
+        {'kode': 'AMZN', 
+        'perusahaan': 'Amazon.com Inc.', 
+        'hargaPembukaan': 3400, 
+        'hargaPenutupan': 3450, 
+        'perubahan': 1.47, 
+        'nilai': 1740500000000,  
+        'hapus': False},
         
-        7 : {'kode':'GOTO',
-             'perusahaan':'GoTo Gojek Tokopedia Tbk.', 
-             'hargaPembukaan':81,
-             'hargaPenutupan':81,
-             'perubahan':0.00, 
-             'nilai':436906658200, 
-             'hapus':False},
+        {'kode': 'TSLA', 
+        'perusahaan': 'Tesla, Inc.', 
+        'hargaPembukaan': 9005, 
+        'hargaPenutupan': 9205, 
+        'perubahan': 2.22, 
+        'nilai': 860000000000,  
+        'hapus': False},
 
-        8 : {'kode':'TLKM',
-             'perusahaan':'Telkom Indonesia (Persero) Tbk.', 
-             'hargaPembukaan':2430,
-             'hargaPenutupan':5550,
-             'perubahan':128.57, 
-             'nilai':439964438000, 
-             'hapus':False}}
+        {'kode':'TLKM',
+        'perusahaan':'Telkom Indonesia (Persero) Tbk.', 
+        'hargaPembukaan':2430,
+        'hargaPenutupan':5550,
+        'perubahan':128.57, 
+        'nilai':439964438000, 
+        'hapus':False}
+        ]
 
 def bersihkan_layar():
         if os.name == 'nt':
@@ -74,9 +91,8 @@ def bersihkan_layar():
                 os.system('clear') # Linux/macOS
 
 def login():
-        bersihkan_layar()
         while True:
-                print('\n')
+                bersihkan_layar()
                 print('='*110)
                 print(f"{'SELAMAT DATANG DI':^100}")
                 print(f"{'SISTEM MANAJEMEN DATA SAHAM KONOHA':^100}")
@@ -111,6 +127,7 @@ def menu_utama(pengguna):
                                   *** Manajemen Data Saham 2025 ***
                                 =====================================
                                 Daftar Menu Utama: 
+                                =====================================
                                 [1] Menampilkan Data Saham 
                                 [2] Menambah Data Saham 
                                 [3] Memperbarui Data Saham 
@@ -146,6 +163,7 @@ def menu_utama(pengguna):
                                   *** Manajemen Data Saham 2025 ***
                                 =====================================
                                 Daftar Menu Utama: 
+                                =====================================
                                 [1] Menampilkan Data Saham 
                                 [2] Keluar            
                                 ======================================
@@ -164,8 +182,9 @@ def menu_utama(pengguna):
 
 def nominal(angka):
         if isinstance(angka, str): 
-                angka = angka.replace(',', '') 
-        return f'{float(angka):,.2f}' # Format nominal ribuan
+                angka = angka.replace('.', '')
+        angka = int(float(angka)) 
+        return f'{angka:,.0f}'.replace(',', '.')  # Format nominal ribuan
 
 def presentase(perubahan): 
         if isinstance(perubahan, str):
@@ -175,73 +194,64 @@ def presentase(perubahan):
 # *******************************
 # ********** READ DATA **********
 # *******************************
+
 def menampilkan(): 
         print('\n')
         Tabel = PrettyTable()
-        Tabel.field_names = ['ID', 'Kode Saham', 'Nama Perusahaan', 'Harga Pembukaan', 'Harga Penutupan', 'Perubahan Harga', 'Nilai Transaksi']
-
-        for id, saham in dataSaham.items(): # Menampilkan semua data saham
-                if isinstance(saham, dict) and 'hapus' in saham:
-                        if saham['hapus'] == False:
-                                Tabel.title = 'RINGKASAN PASAR SAHAM KONOHA 2025'
+        Tabel.field_names = ['Kode Saham', 'Nama Perusahaan', 'Harga Pembukaan', 'Harga Penutupan', 'Perubahan Harga', 'Nilai Transaksi']
+        Tabel.title = 'RINGKASAN PASAR SAHAM KONOHA 2025'
+        
+        if len(dataSaham) == 0:
+                Tabel.add_row(['Data Saham Kosong']*6)
+                print(Tabel)
+        else:
+                for saham in dataSaham:  # Menampilkan semua data saham
+                        if saham['hapus'] == False:  # Memastikan saham tidak dihapus
+                                
+                                kode_saham = saham['kode']
+                                nama_perusahaan = saham['perusahaan']
                                 harga_pembukaan = nominal(saham['hargaPembukaan'])
                                 harga_penutupan = nominal(saham['hargaPenutupan'])
                                 perubahan_harga = presentase(saham['perubahan'])
                                 nilai_transaksi = nominal(saham['nilai'])
-                                Tabel.add_row([id, saham['kode'], saham['perusahaan'], harga_pembukaan, harga_penutupan, perubahan_harga, nilai_transaksi])
-        print(Tabel)
-        input('=> Tekan Enter untuk melanjutkan..')
 
-def filterId():
-        while True: 
-                try:
-                        idSaham = int(input('\t\t\t   => Masukkan ID saham yang ingin ditampilkan: '))
-                        break
-                except ValueError: 
-                        print('\n')
-                        print(f"{'Maaf, ID yang Anda masukkan tidak valid. Pastikan ID berupa angka dan coba lagi.':^100}")
-                        print(f"{'*'*3:^100}")
-                        print('\n')
-        print('\n')
-        if idSaham in dataSaham: # Menampilkan data berdasarkan id saham tertentu
-                saham = dataSaham[idSaham]
-                Tabel = PrettyTable()
-                Tabel.field_names = ['ID', 'Kode Saham', 'Nama Perusahaan', 'Harga Pembukaan', 'Harga Penutupan', 'Perubahan Harga', 'Nilai Transaksi']
-                Tabel.title = 'RINGKASAN PASAR SAHAM KONOHA 2025'
-                harga_pembukaan = nominal(saham['hargaPembukaan'])
-                harga_penutupan = nominal(saham['hargaPenutupan'])
-                perubahan_harga = presentase(saham['perubahan'])
-                nilai_transaksi = nominal(saham['nilai'])
-                Tabel.add_row([idSaham, saham['kode'], saham['perusahaan'], harga_pembukaan, harga_penutupan, perubahan_harga, nilai_transaksi])
-                print(Tabel)
-                input('=> Tekan Enter untuk melanjutkan..')
-        else:
-                print(f"{'Data dengan ID yang Anda masukkan tidak terdeteksi. Pastikan ID benar.':^100}")
-                print(f"{'*'*3:^100}")
-                input(f"{'Tekan Enter untuk melanjutkan..':^99}")
+                                # Menambahkan baris ke dalam tabel
+                                Tabel.add_row([kode_saham, nama_perusahaan, harga_pembukaan, harga_penutupan, perubahan_harga, nilai_transaksi])
+                
+                # Menampilkan tabel
+                print(Tabel.get_string(sortby='Kode Saham'))
+
+        input('=> Tekan Enter untuk melanjutkan..')
 
 def filterKode():
-        kodeSaham = input('\t\t\t   => Masukkan kode saham yang ingin ditampilkan: ').upper()
+        kodeSaham = input('\t\t\t=> Masukkan kode saham yang ingin ditampilkan: ').upper()
         print('\n')
         cariKode = False 
-        for i, data in dataSaham.items(): # Menampilkan data berdasarkan kode saham tertentu
-                if kodeSaham in data.values(): 
+
+        for saham in dataSaham: # Menampilkan data berdasarkan kode saham tertentu
+                if kodeSaham == saham['kode']:
                         cariKode = True
+                        
                         Tabel = PrettyTable()
-                        Tabel.field_names = ['ID', 'Kode Saham', 'Nama Perusahaan', 'Harga Pembukaan', 'Harga Penutupan', 'Perubahan Harga', 'Nilai Transaksi']
+                        Tabel.field_names = ['Kode Saham', 'Nama Perusahaan', 'Harga Pembukaan', 'Harga Penutupan', 'Perubahan Harga', 'Nilai Transaksi']
                         Tabel.title = 'RINGKASAN PASAR SAHAM KONOHA 2025'
-                        harga_pembukaan = nominal(data['hargaPembukaan'])
-                        harga_penutupan = nominal(data['hargaPenutupan'])
-                        perubahan_harga = presentase(data['perubahan'])
-                        nilai_transaksi = nominal(data['nilai'])
-                        Tabel.add_row([i, data['kode'], data['perusahaan'], harga_pembukaan, harga_penutupan, perubahan_harga, nilai_transaksi])
+                        
+                        kode_saham = saham['kode']
+                        nama_perusahaan = saham['perusahaan']
+                        harga_pembukaan = nominal(saham['hargaPembukaan'])
+                        harga_penutupan = nominal(saham['hargaPenutupan'])
+                        perubahan_harga = presentase(saham['perubahan'])
+                        nilai_transaksi = nominal(saham['nilai'])
+
+                        Tabel.add_row([kode_saham, nama_perusahaan, harga_pembukaan, harga_penutupan, perubahan_harga, nilai_transaksi])
                         print(Tabel)
+                        input('=> Tekan Enter untuk melanjutkan..')
                         break   
         
-        if cariKode == False: 
-                print(f'Data dengan kode {kodeSaham} yang Anda masukkan tidak terdeteksi. Pastikan kode saham benar.')
-
-        input('=> Tekan Enter untuk melanjutkan..')
+        if not cariKode:
+                print(f"{'Data dengan kode {kodeSaham} yang Anda masukkan tidak terdeteksi. Pastikan kode saham benar!':^100}")
+                print(f"{'*'*3:^100}")
+                input(f"{'Tekan Enter untuk melanjutkan..':^99}")
 
 def filterHarga():
         while True: 
@@ -252,64 +262,64 @@ def filterHarga():
                         print('\n')
                         print(f"{'Maaf, harga saham yang Anda masukkan tidak valid. Pastikan harga berupa angka dan coba lagi.':^100}")
                         print(f"{'*'*3:^100}")
+        
         print('\n')
         cariHarga = False
-        for i, data in dataSaham.items(): # Menampilkan data berdasarkan harga pembukaan atau harga penutupan saham
-                if data['hargaPembukaan'] == harga or data['hargaPenutupan'] == harga: 
-                        cariHarga = True
-                        Tabel = PrettyTable()
-                        Tabel.field_names = ['ID', 'Kode Saham', 'Nama Perusahaan', 'Harga Pembukaan', 'Harga Penutupan', 'Perubahan Harga', 'Nilai Transaksi']
-                        Tabel.title = 'RINGKASAN PASAR SAHAM KONOHA 2025'
-                        harga_pembukaan = nominal(data['hargaPembukaan'])
-                        harga_penutupan = nominal(data['hargaPenutupan'])
-                        perubahan_harga = presentase(data['perubahan'])
-                        nilai_transaksi = nominal(data['nilai'])
-                        Tabel.add_row([i, data['kode'], data['perusahaan'], harga_pembukaan, harga_penutupan, perubahan_harga, nilai_transaksi])
-                        print(Tabel)  
-                        input('=> Tekan Enter untuk melanjutkan..')
+        Tabel = PrettyTable()
+        Tabel.field_names = ['Kode Saham', 'Nama Perusahaan', 'Harga Pembukaan', 'Harga Penutupan', 'Perubahan Harga', 'Nilai Transaksi']
+        Tabel.title = 'RINGKASAN PASAR SAHAM KONOHA 2025'
         
-        if cariHarga == False:
+        for saham in dataSaham: # Menampilkan data berdasarkan harga pembukaan atau harga penutupan saham
+                if saham['hargaPembukaan'] == harga or saham['hargaPenutupan'] == harga: 
+                        cariHarga = True
+                        
+                        kode_saham = saham['kode']
+                        nama_perusahaan = saham['perusahaan']
+                        harga_pembukaan = nominal(saham['hargaPembukaan'])
+                        harga_penutupan = nominal(saham['hargaPenutupan'])
+                        perubahan_harga = presentase(saham['perubahan'])
+                        nilai_transaksi = nominal(saham['nilai'])
+
+                        Tabel.add_row([kode_saham, nama_perusahaan, harga_pembukaan, harga_penutupan, perubahan_harga, nilai_transaksi])
+        if cariHarga:
+                print(Tabel)  
+                input('=> Tekan Enter untuk melanjutkan..')
+        
+        else:
                 print('\n')
-                print(f"{'Pencarian tidak ditemukan. Pastikan harga pembukaan atau penutupan saham yang Anda masukkan sudah benar':^100}")
+                print(f"{'Pencarian tidak ditemukan. Pastikan harga pembukaan atau penutupan saham yang Anda masukkan sudah benar!':^100}")
                 print(f"{'*'*3:^100}")
                 input(f"{'Tekan Enter untuk melanjutkan..':^99}")
 
 def tampilkanData():
+        bersihkan_layar()
         while True:
-                bersihkan_layar()
                 print('\r\n')
                 print('='*110)
                 print(f"{'SISTEM MANAJEMEN DATA SAHAM KONOHA':^100}")
                 print('='*110)
 
                 menuCari = input('''
-                           =============================================
-                                  ***  Data Saham Konoha 2025 ***
-                           =============================================
-                           Daftar Menu:
-                           ============================================= 
-                           [1] Menampilkan Semua Data Saham 
-                           [2] Menampilkan Data Saham Berdasarkan ID
-                           [3] Menampilkan Data Saham Berdasarkan Kode
-                           [4] Menampilkan Data Saham Berdasarkan Harga
-                               Pembukaan atau Penutupan Saham 
-                           [5] Kembali ke Menu Utama  
-                           ============================================= 
-                           => Pilih menu yang ingin Anda akses : ''')
+                        =====================================================
+                                   ***  Data Saham Konoha 2025 ***
+                        =====================================================
+                        Daftar Menu:
+                        =====================================================
+                        [1] Menampilkan Semua Data Saham 
+                        [2] Menampilkan Data Saham Berdasarkan Kode Saham
+                        [3] Menampilkan Data Saham Berdasarkan Harga Saham
+                            Pembukaan atau Penutupan Saham 
+                        [4] Kembali ke Menu Utama  
+                        =====================================================
+                        => Pilih menu yang ingin Anda akses : ''')
 
                 if menuCari == '1': # Menampilkan semua data saham
-                        if len(dataSaham) > 0: 
-                                menampilkan()
-                        else:
-                                print(f"{'\nData Saham Tidak Ditemukan':^100}")
-                                print(f"{'*'*3:^100}")
-                elif menuCari == '2': # Menampilkan data saham berdasarkan ID saham
-                        filterId()
-                elif menuCari == '3': # Menampilkan data saham berdasarkan kode saham
+                        menampilkan()
+                elif menuCari == '2': # Menampilkan data saham berdasarkan kode saham
                         filterKode()
-                elif menuCari == '4': # Menampilkan data saham berdasarkan harga pembukaan atau penutupan saham
+                elif menuCari == '3': # Menampilkan data saham berdasarkan harga pembukaan atau penutupan saham
                         filterHarga()
-                elif menuCari == '5': # Kembali ke menu utama 
+                elif menuCari == '4': # Kembali ke menu utama 
                         break
                 else:
                         print('\n')
@@ -320,38 +330,53 @@ def tampilkanData():
 # *********************************
 # ********** CREATE DATA **********
 # *********************************
-def cekKode():
-        while True:    # User menambahkan kode saham baru 
-                kode = input('Masukkan kode saham\t\t: ').upper() 
-                if kode.isalpha():
-                        if len(kode) == 4: 
-                                return kode
-                        else:
-                                print('\nMaaf, kode yang Anda berikan tidak valid. Silakan periksa dan coba lagi.\n')
-                else: 
-                        print('\nMaaf, kode yang Anda berikan tidak valid. Silakan periksa dan coba lagi.\n')
+
+def cekPerusahaan():
+        while True:
+        # Menerima input dari user dan memastikan hanya huruf dan spasi yang dimasukkan
+                perusahaan = input("Masukkan nama perusahaan\t: ").strip()
+                nama = perusahaan.split()
+                if len(nama) == 4 and all(kata.isalpha() for kata in nama):  
+                        return perusahaan.title()
+                else:
+                        print('\n')
+                        print("Nama perusahaan hanya boleh mengandung huruf, spasi dan harus empat kata. Silakan coba lagi.")
+                        print('\n')
+
+def konfersiKode(pt):
+        kode = pt.split()
+        kodeSaham = ''.join([saham[0].upper() for saham in kode])
+        return kodeSaham[:4]
 
 def cekHargaPembukaan():
         while True: 
                 try:    # User menambahkan harga pembukaan saham
                         hargaPembukaan = int(input('Masukkan harga pembukaan saham\t: '))
                         if hargaPembukaan <= 0:
-                                print('\nMaaf, harga yang Anda masukkan tidak valid. Pastikan harga lebih dari 0.\n')  
+                                print('\n')
+                                print('Maaf, harga yang Anda masukkan tidak valid. Pastikan harga lebih dari 0.')  
+                                print('\n')
                         else:
                                 return hargaPembukaan
                 except ValueError:
-                        print('\nMaaf, harga yang Anda masukkan tidak valid. Pastikan harga berupa angka dan coba lagi.\n')
+                        print('\n')
+                        print('Maaf, harga yang Anda masukkan tidak valid. Pastikan harga berupa angka dan coba lagi.')
+                        print('\n')
 
 def cekHargaPenutupan():
         while True:
                 try:    # User menambahkan harga pembukaan saham
                         hargaPenutupan = int(input('Masukkan harga penutupan saham\t: '))
                         if hargaPenutupan <= 0:
-                                print('\nMaaf, harga yang Anda masukkan tidak valid. Pastikan harga lebih dari 0.\n')  
+                                print('\n')
+                                print('Maaf, harga yang Anda masukkan tidak valid. Pastikan harga lebih dari 0.')  
+                                print('\n')
                         else:
                                 return hargaPenutupan
                 except ValueError:
-                        print('\nMaaf, harga yang Anda masukkan tidak valid. Pastikan harga berupa angka dan coba lagi.\n')
+                        print('\n')
+                        print('Maaf, harga yang Anda masukkan tidak valid. Pastikan harga berupa angka dan coba lagi.')
+                        print('\n')
 
 def cekPerubahan(hargaPembukaan, hargaPenutupan):
         if hargaPembukaan == 0: 
@@ -365,114 +390,104 @@ def cekNilai():
                 try:    # User menambahkan nilai transaksi saham
                         nilai = int(input('Masukkan nilai transaksi saham\t: '))
                         if nilai <= 0:
-                                print('\nMaaf, nilai transaksi saham yang Anda masukkan tidak valid. Pastikan nilai transaksi lebih dari 0.\n') 
+                                print('\n')
+                                print('Maaf, nilai transaksi saham yang Anda masukkan tidak valid. Pastikan nilai transaksi lebih dari 0.')
+                                print('\n') 
                         else:
                                 return nilai
                 except ValueError:
-                        print('\nMaaf, nilai transaksi saham yang Anda masukkan tidak valid. Pastikan nilai berupa angka dan coba lagi.\n')
+                        print('\n')
+                        print('Maaf, nilai transaksi saham yang Anda masukkan tidak valid. Pastikan nilai berupa angka dan coba lagi.')
+                        print('\n')
 
 def menambahkan():
-        while True:
-                try:    # User menambahkan ID saham baru 
-                        idSaham = int(input('\nMasukkan ID saham baru\t\t: ')) 
-                        if idSaham <= 0:
-                                raise IndexError('\nMaaf, ID yang Anda masukkan tidak valid.\n') 
-                        break
-                except IndexError:
-                        print('\nMaaf, ID yang Anda masukkan tidak valid. Pastikan ID berupa angka dan coba lagi.\n')
-                except ValueError:
-                        print('\nMaaf, ID yang Anda masukkan tidak valid. Pastikan ID berupa angka dan coba lagi.\n')
-        
-        if idSaham in dataSaham: 
-                print('\nID yang Anda masukkan sudah terdaftar dalam data. Silahkan coba ID baru.\n')
-                saham = dataSaham[idSaham]
+        # User menambahkan nama perusahaan saham tersebut
+        print('\n')
+        perusahaan = cekPerusahaan()
+        kode = konfersiKode(perusahaan)
+
+        cari = False
+        for saham in dataSaham:
+                if saham ['kode'] == kode:
+                        cari=True
+                        break 
+        if cari:
+                print('\n')
+                print('Nama perusahaan yang Anda masukkan sudah terdaftar dalam data.')
+                print('\n')                
+                cari = True 
+                
                 Tabel = PrettyTable()
-                Tabel.field_names = ['ID', 'Kode Saham', 'Nama Perusahaan', 'Harga Pembukaan', 'Harga Penutupan', 'Perubahan Harga', 'Nilai Transaksi']
+                Tabel.field_names = ['Kode Saham', 'Nama Perusahaan', 'Harga Pembukaan', 'Harga Penutupan', 'Perubahan Harga', 'Nilai Transaksi']
                 Tabel.title = 'RINGKASAN PASAR SAHAM KONOHA 2025'
+                
+                kode_saham = saham['kode']
+                nama_perusahaan = saham['perusahaan']
                 harga_pembukaan = nominal(saham['hargaPembukaan'])
                 harga_penutupan = nominal(saham['hargaPenutupan'])
                 perubahan_harga = presentase(saham['perubahan'])
                 nilai_transaksi = nominal(saham['nilai'])
-                Tabel.add_row([idSaham, saham['kode'], saham['perusahaan'], harga_pembukaan, harga_penutupan, perubahan_harga, nilai_transaksi])
-                print(Tabel)
-        else:   # User menambahkan kode saham baru
-                kode = cekKode()
-                cari = False
-                for i, data in dataSaham.items():
-                        if kode in data.values():
-                                cari = True
-                                break
-                if cari:
-                        print('\nKode saham yang Anda masukkan sudah terdaftar dalam data. Silahkan coba kode saham baru.\n')
-                        cari = True 
-                        Tabel = PrettyTable()
-                        Tabel.field_names = ['ID', 'Kode Saham', 'Nama Perusahaan', 'Harga Pembukaan', 'Harga Penutupan', 'Perubahan Harga', 'Nilai Transaksi']
-                        Tabel.title = 'RINGKASAN PASAR SAHAM KONOHA 2025'
-                        harga_pembukaan = nominal(data['hargaPembukaan'])
-                        harga_penutupan = nominal(data['hargaPenutupan'])
-                        perubahan_harga = presentase(data['perubahan'])
-                        nilai_transaksi = nominal(data['nilai'])
-                        Tabel.add_row([i, data['kode'], data['perusahaan'], harga_pembukaan, harga_penutupan, perubahan_harga, nilai_transaksi])
-                        print(Tabel)
-                        
-                else:   # User menambahkan nama perusahaan saham tersebut
-                        perusahaan = input('Masukkan nama perusahaan\t: ').title()
-                        cari = False
-                        for i, data in dataSaham.items():
-                                if perusahaan in data.values():
-                                        cari=True
-                                        break 
-                        if cari:
-                                print('\nNama perusahaan yang Anda masukkan sudah terdaftar dalam data.\n')
-                                cari = True 
-                                Tabel = PrettyTable()
-                                Tabel.field_names = ['ID', 'Kode Saham', 'Nama Perusahaan', 'Harga Pembukaan', 'Harga Penutupan', 'Perubahan Harga', 'Nilai Transaksi']
-                                Tabel.title = 'RINGKASAN PASAR SAHAM KONOHA 2025'
-                                harga_pembukaan = nominal(data['hargaPembukaan'])
-                                harga_penutupan = nominal(data['hargaPenutupan'])
-                                perubahan_harga = presentase(data['perubahan'])
-                                nilai_transaksi = nominal(data['nilai'])
-                                Tabel.add_row([i, data['kode'], data['perusahaan'], harga_pembukaan, harga_penutupan, perubahan_harga, nilai_transaksi])
-                                print(Tabel)
-                        else:        
-                                hargaPembukaan = cekHargaPembukaan() # User menambahkan harga prmbukaan saham baru
-                                hargaPenutupan = cekHargaPenutupan() # User menambahkan harga penutupan saham baru
-                                perubahanHarga = cekPerubahan(hargaPembukaan, hargaPenutupan)# Menampilkan nilai perubahan harga saham
-                                print(f'Pergerakan Harga\t\t: {presentase(perubahanHarga)}')
-                                nilai = cekNilai() # User menambahkan total nilai transaksi saham tersebut
 
-                                # Menampung & menampilkan data baru yg ditambahkan 
-                                print('\nData Baru:')
-                                dataSaham[idSaham] = {
-                                        'kode':kode,
-                                        'perusahaan':perusahaan, 
-                                        'hargaPembukaan':nominal(hargaPembukaan),
-                                        'hargaPenutupan':nominal(hargaPenutupan),
-                                        'perubahan':presentase(perubahanHarga), 
-                                        'nilai':nominal(nilai), 
-                                        'hapus':False}
-                                Tabel = PrettyTable()
-                                Tabel.field_names = ['ID', 'Kode Saham', 'Nama Perusahaan', 'Harga Pembukaan', 'Harga Penutupan', 'Perubahan Harga', 'Nilai Transaksi']
-                                Tabel.title = 'RINGKASAN PASAR SAHAM KONOHA 2025'
-                                harga_pembukaan = nominal(hargaPembukaan)
-                                harga_penutupan = nominal(hargaPenutupan)
-                                perubahan_harga = presentase(perubahanHarga)
-                                nilai_transaksi = nominal(nilai)
-                                Tabel.add_row([idSaham, kode, perusahaan, harga_pembukaan, harga_penutupan, perubahan_harga, nilai_transaksi])
-                                print(Tabel)
-                                        
-                                simpan = input('=> Pastikan data yang Anda masukkan sudah benar.\n   Apakah Anda ingin menyimpan data baru tersebut? (Ya/Tidak): ').capitalize()
-                                if simpan == 'Ya':
-                                        print(f"=> Data saham berhasil ditambahkan.")
-                                        menampilkan()
-                                else:
-                                        print(f"=> Penambahan data saham dibatalkan.\n")
-                                        tambahData()
+                Tabel.add_row([kode_saham, nama_perusahaan, harga_pembukaan, harga_penutupan, perubahan_harga, nilai_transaksi])
+                print(Tabel.get_string(sortby='Kode Saham'))
+                return
+                
+        else:        
+                hargaPembukaan = cekHargaPembukaan() # User menambahkan harga prmbukaan saham baru
+                hargaPenutupan = cekHargaPenutupan() # User menambahkan harga penutupan saham baru
+                perubahanHarga = cekPerubahan(hargaPembukaan, hargaPenutupan)# Menampilkan nilai perubahan harga saham
+                print(f'Pergerakan Harga\t\t: {presentase(perubahanHarga)}')
+                nilai = cekNilai() # User menambahkan total nilai transaksi saham tersebut
+
+                # Menampung & menampilkan data baru yg ditambahkan 
+                print('\n') 
+                print('Data Baru:')   
+                Tabel = PrettyTable()
+                Tabel.field_names = ['Kode Saham', 'Nama Perusahaan', 'Harga Pembukaan', 'Harga Penutupan', 'Perubahan Harga', 'Nilai Transaksi']
+                Tabel.title = 'RINGKASAN PASAR SAHAM KONOHA 2025'
+                
+                Tabel.add_row([
+                        kode, 
+                        perusahaan, 
+                        nominal(hargaPembukaan), 
+                        nominal(hargaPenutupan), 
+                        presentase(perubahanHarga), 
+                        nominal(nilai)
+                        ])
+                print(Tabel)
+
+                dataSaham.append({
+                        'kode':kode,
+                        'perusahaan':perusahaan, 
+                        'hargaPembukaan':nominal(hargaPembukaan),
+                        'hargaPenutupan':nominal(hargaPenutupan),
+                        'perubahan':presentase(perubahanHarga), 
+                        'nilai':nominal(nilai), 
+                        'hapus':False
+                        })
+                
+                simpan = input('=> Pastikan data yang Anda masukkan sudah benar.\n   Apakah Anda ingin menyimpan data baru tersebut? (Ya/Tidak): ').capitalize()
+                if simpan == 'Ya':
+                        print('\n')
+                        print(f"{'Data saham berhasil ditambahkan.':^100}")
+                        print(f"{'*'*3:^100}")
+                        input(f"{'Tekan Enter untuk melanjutkan..':^99}")
+                        menampilkan()
+                elif simpan == 'Tidak':
+                        print('\n')
+                        print(f"{'Penambahan data saham dibatalkan.':^100}")
+                        print(f"{'*'*3:^100}")
+                        input(f"{'Tekan Enter untuk melanjutkan..':^99}")
+                else:
+                        print('\n')
+                        print(f"{'Input masih tidak valid.':^100}")
+                        print(f"{'*'*3:^100}")
+                        input(f"{'Tekan Enter untuk melanjutkan..':^99}")
 
 def tambahData():
+        bersihkan_layar()
         while True:
-                bersihkan_layar()
-                print('\r\n')
+                print('\n')
                 print('='*110)
                 print(f"{'SISTEM MANAJEMEN DATA SAHAM KONOHA':^100}")
                 print('='*110)
@@ -490,7 +505,7 @@ def tambahData():
 
                 if menuTambah == '1': # Menambahkan data saham baru 
                         menambahkan() 
-                elif menuTambah == '2':
+                elif menuTambah == '2':# Kembali ke menu utama
                         break
                 else:
                         print('\n')
@@ -501,128 +516,161 @@ def tambahData():
 # ****************************
 # ********** UPDATE **********
 # **************************** 
+
 def memperbarui():
+        menampilkan()
+        print('\n')
         while True: 
-                try:    # User input ID yang ingin diperbarui
-                        idSaham = int(input('\t\t\t       => Masukkan ID saham yang ingin diperbarui: '))
+                try:    # User input kode yang ingin diperbarui
+                        kodeSaham = input('=> Masukkan kode saham yang ingin diperbarui: ').upper()
                         break
                 except ValueError:
                         print('\n')
-                        print(f"{'Maaf, ID yang Anda masukkan tidak valid. Pastikan ID berupa angka dan coba lagi.':^100}")
+                        print(f"{'Maaf, kode yang Anda masukkan tidak valid. Pastikan kode berupa angka dan coba lagi.':^100}")
                         print(f"{'*'*3:^100}")
                         print('\n')
 
-        if idSaham in dataSaham:
-                saham = dataSaham[idSaham] # Menampilkan data saham berdasarkan ID yang ingin diperbarui
-                Tabel = PrettyTable()
-                Tabel.field_names = ['ID', 'Kode Saham', 'Nama Perusahaan', 'Harga Pembukaan', 'Harga Penutupan', 'Perubahan Harga', 'Nilai Transaksi']
-                Tabel.title = 'RINGKASAN PASAR SAHAM KONOHA 2025'
-                harga_pembukaan = nominal(saham['hargaPembukaan'])
-                harga_penutupan = nominal(saham['hargaPenutupan'])
-                perubahan_harga = presentase(saham['perubahan'])
-                nilai_transaksi = nominal(saham['nilai'])
-                Tabel.add_row([idSaham, saham['kode'], saham['perusahaan'], harga_pembukaan, harga_penutupan, perubahan_harga, nilai_transaksi])
-                print(Tabel)  
+        cari = False
+        for saham in dataSaham: 
+                if kodeSaham == saham['kode']:
+                        dataAsli = saham.copy()
 
-                konfirmasi = input('Apakah Anda ingin melanjutkan untuk memperbarui data tersebut (Ya/Tidak)?: ').capitalize()
-                if konfirmasi == 'Ya':
-                        kolom = input('''
-                               ========================================                          
-                               Daftar kolom: 
-                               ========================================                          
-                               [1] Kode Saham
-                               [2] Nama Perusahaan
-                               [3] Harga Pembukaan
-                               [4] Harga Penutupan
-                               [5] Perubahan Harga 
-                               [6] Nilai Transaksi
-                               ========================================                          
-                               => Masukkan kolom yang ingin diperbarui: ''')
-                        print('\n')
-                        if kolom == '1': # Memperbarui kode saham  
-                                Kode = cekKode()
-                                dataSaham[idSaham]['kode'] = Kode
-                        elif kolom == '2': # Memperbarui nama perusahaan
-                                Perusahaan = input('Masukkan nama perusahaan\t: ').title()
-                                dataSaham[idSaham]['perusahaan'] = Perusahaan
-                        elif kolom == '3': # Memperbarui harga pembukaan saham
-                                HargaPembukaan = cekHargaPembukaan()
-                                HargaPembukaan = nominal(HargaPembukaan)
-                                dataSaham[idSaham]['hargaPembukaan'] = HargaPembukaan                    
-                        elif kolom == '4': # Memperbarui harga penutupan saham
-                                HargaPenutupan = cekHargaPenutupan()
-                                HargaPenutupan = nominal(HargaPenutupan)
-                                dataSaham[idSaham]['hargaPenutupan'] = HargaPenutupan
-                        elif kolom == '5': # Memperbarui persentase perubahan harga saham
-                                hargaPembukaan = cekHargaPembukaan()
-                                hargaPenutupan = cekHargaPenutupan()
-                                perubahan = cekPerubahan(hargaPembukaan, hargaPenutupan) # Hitung perubahan harga
-                                if perubahan is not None:
-                                        # Ubah perubahan ke format persentase
-                                        perubahan = presentase(perubahan)
-                                        perubahanAngka = float(perubahan.replace('%', ''))
-                                        # Update data saham
-                                        dataSaham[idSaham]['hargaPembukaan'] = hargaPembukaan
-                                        dataSaham[idSaham]['hargaPenutupan'] = hargaPenutupan
-                                        dataSaham[idSaham]['perubahan'] = perubahan
+                        # Menampilkan data saham berdasarkan kode saham yang ingin diperbarui
+                        Tabel = PrettyTable()
+                        Tabel.field_names = ['Kode Saham', 'Nama Perusahaan', 'Harga Pembukaan', 'Harga Penutupan', 'Perubahan Harga', 'Nilai Transaksi']
+                        Tabel.title = 'RINGKASAN PASAR SAHAM KONOHA 2025'
+                        
+                        Tabel.add_row([
+                                kodeSaham, 
+                                saham['perusahaan'],  
+                                nominal(saham['hargaPembukaan']), 
+                                nominal(saham['hargaPenutupan']), 
+                                presentase(saham['perubahan']),
+                                nominal(saham['nilai'])
+                                ])
+                        print(Tabel)
+                        cari = True
+                        break
 
-                                        if perubahanAngka > 10:
-                                                print('\nHarga berubah sangat signifikan!\n')
-                                        elif perubahanAngka <= 10:
-                                                print('\nHarga berubah cukup signifikan\n')
-                                        else:
-                                                print('\nHarga tidak mengalami perubahan\n')
-                                else:
-                                        print('\nNilai perubahan tidak dapat dihitung. Pastikan Anda memasukkan data dengan benar.\n') 
-                        elif kolom == '6': # Memperbarui nilai transaksi saham
-                                Nilai = cekNilai()
-                                Nilai = nominal(Nilai)
-                                dataSaham[idSaham]['nilai'] = Nilai
-                        else:
-                                print('\n')
-                                print(f"{'Kolom yang Anda pilih tidak ditemukan. Silakan pilih kolom yang valid untuk diperbarui.':^100}")
-                                print(f"{'*'*3:^100}")
-                                memperbarui()
-
-                        simpan = input('Apakah data tersebut mau disimpan (Ya/Tidak)?: ').capitalize()
-                        if simpan == 'Ya':
-                                print(f"\nData saham {dataSaham[idSaham]['perusahaan']} berhasil diperbarui\n")
-                        else:
-                                print(f"\nPembaruan data saham {dataSaham[idSaham]['perusahaan']} dibatalkan. Tidak ada perubahan yang dilakukan.\n")
-                                perbaruiData()
-                else:
-                        perbaruiData()
-                
-        else:
+        if cari == False:
                 print('\n')
-                print(f"{'Data dengan ID yang Anda masukkan tidak terdeteksi. Pastikan ID benar.':^100}")
+                print(f"{'Data dengan kode yang Anda masukkan tidak terdeteksi. Pastikan kode benar.':^100}")
                 print(f"{'*'*3:^100}")
+                return
+        
+        if cari:
+                while True:
+                        try:
+                                konfirmasi = input('Apakah Anda ingin melanjutkan untuk memperbarui data tersebut (Ya/Tidak)?: ').capitalize()
+                                if konfirmasi == 'Ya':
+                                        kolom = input('''
+                                        ========================================                          
+                                        Daftar kolom: 
+                                        ========================================                          
+                                        [1] Nama Perusahaan
+                                        [2] Harga Pembukaan
+                                        [3] Harga Penutupan
+                                        [4] Perubahan Harga 
+                                        [5] Nilai Transaksi
+                                        ========================================                          
+                                        => Masukkan kolom yang ingin diperbarui: ''')
+                                        print('\n')
+                                        
+                                        if kolom == '1': # Memperbarui nama perusahaan dan kode saham baru
+                                                Perusahaan = cekPerusahaan()
+                                                saham['perusahaan'] = Perusahaan
 
-        input(f"{'Tekan Enter untuk melanjutkan..':^99}")
+                                                KodeBaru = konfersiKode(Perusahaan)
+                                                saham['kode'] = KodeBaru
+                                        elif kolom == '2': # Memperbarui harga pembukaan saham
+                                                HargaPembukaan = cekHargaPembukaan()
+                                                HargaPembukaan = nominal(HargaPembukaan)
+                                                saham['hargaPembukaan'] = HargaPembukaan                    
+                                        elif kolom == '3': # Memperbarui harga penutupan saham
+                                                HargaPenutupan = cekHargaPenutupan()
+                                                HargaPenutupan = nominal(HargaPenutupan)
+                                                saham['hargaPenutupan'] = HargaPenutupan
+                                        elif kolom == '4': # Memperbarui persentase perubahan harga saham
+                                                hargaPembukaan = cekHargaPembukaan()
+                                                hargaPenutupan = cekHargaPenutupan()
+                                                perubahan = cekPerubahan(hargaPembukaan, hargaPenutupan) # Hitung perubahan harga
+                                                if perubahan is not None:
+                                                        # Ubah perubahan ke format persentase
+                                                        perubahan = presentase(perubahan)
+                                                        perubahanAngka = float(perubahan.replace('%', ''))
+                                                        # Update data saham
+                                                        saham['hargaPembukaan'] = hargaPembukaan
+                                                        saham['hargaPenutupan'] = hargaPenutupan
+                                                        saham['perubahan'] = perubahan
 
+                                                        if perubahanAngka > 10:
+                                                                print('\nHarga berubah sangat signifikan!\n')
+                                                        elif perubahanAngka <= 10:
+                                                                print('\nHarga berubah cukup signifikan\n')
+                                                        else:
+                                                                print('\nHarga tidak mengalami perubahan\n')
+                                                else:
+                                                        print('\nNilai perubahan tidak dapat dihitung. Pastikan Anda memasukkan data dengan benar.\n') 
+                                        elif kolom == '5': # Memperbarui nilai transaksi saham
+                                                Nilai = cekNilai()
+                                                Nilai = nominal(Nilai)
+                                                saham['nilai'] = Nilai
+                                        else:
+                                                print('\n')
+                                                print(f"{'Kolom yang Anda pilih tidak ditemukan. Silakan pilih kolom yang valid untuk diperbarui.':^100}")
+                                                print(f"{'*'*3:^100}")
+                                                continue
+
+                                        simpan = input('Apakah data tersebut mau disimpan (Ya/Tidak)?: ').capitalize()
+                                        if simpan == 'Ya':
+                                                print(f"Data saham PT {saham['perusahaan']} berhasil diperbarui")
+                                                menampilkan()
+                                        elif simpan == 'Tidak':
+                                                dataSaham[dataSaham.index(saham)] = dataAsli
+                                                print(f"Pembaruan data saham dibatalkan. Data tidak disimpan.")
+
+                                        else:
+                                                print(f"{'Input tidak valid.':^100}")
+                                                print(f"{'*'*3:^100}")
+                                                input(f"{'Tekan Enter untuk melanjutkan..':^99}")                  
+                                        break
+                
+                                elif konfirmasi == 'Tidak':
+                                        print('\n')
+                                        print(f"{' Proses pembaruan data dibatalkan.':^100}")
+                                        print(f"{'*'*3:^100}")
+                                        break
+                                else:
+                                        raise ValueError ("=> Input tidak valid. Silakan pilih ya atau tidak dan coba lagi.")
+                                        input('=> Tekan Enter untuk melanjutkan..')      
+
+                        except ValueError as pesanInvalid:
+                                print(pesanInvalid)
+                                continue
+                                
 def perbaruiData():
-        bersihkan_layar()
         while True:               
-                print('\r\n')
+                print('\n')
                 print('='*110)
                 print(f"{'SISTEM MANAJEMEN DATA SAHAM KONOHA':^100}")
                 print('='*110)
 
                 menuPerbarui =   input('''
-                               =======================================
-                                  *** Pembaruan Data Saham 2025 ***
-                               =======================================
+                               ======================================
+                                   *** Pembaruan Data Saham 2025 ***
+                               ======================================
                                Daftar Menu Pembaruan:
-                               =======================================
+                               ======================================
                                [1] Memperbarui Data Saham  
                                [2] Kembali ke Menu Utama 
-                               =======================================
+                               ======================================
                                => Pilih menu yang ingin Anda akses : ''')
                 
                 if menuPerbarui == '1':
-                        memperbarui() # Memperbarui data saham berdasarkan ID saham
-                        menampilkan()
+                        memperbarui() # Memperbarui data saham berdasarkan kode saham
+                        break
                 elif menuPerbarui == '2':
+                        menu_utama('admin')
                         break
                 else:
                         print('\n')
@@ -633,153 +681,215 @@ def perbaruiData():
 # ****************************
 # ********** DELETE **********
 # ****************************
-recycle_bin = {} # untuk menampung data yg dihapus
+
+recycle_bin = [] # untuk menampung data yg dihapus
+
 def menghapus():
         while True:
-                try:    # Menghapus data saham berdasarkan ID saham (soft deleted)
-                        idSaham = int(input('\t\t\t       => Masukkan ID saham yang ingin Anda hapus: '))
+                try:    # Menghapus data saham berdasarkan kode saham (soft deleted)
+                        kodeSaham = input('\t\t\t       => Masukkan kode saham yang ingin Anda hapus: ').upper()
                         break
                 except ValueError:
                         print('\n')
-                        print(f"{'Maaf, ID yang Anda masukkan tidak valid. Pastikan ID berupa angka dan coba lagi.':^100}")
+                        print(f"{'Maaf, kode yang Anda masukkan tidak valid. Pastikan kode saham benar dan coba lagi.':^100}")
                         print(f"{'*'*3:^100}")
                         print('\n')
-
-        if idSaham in dataSaham:
-                print('\n')
-                saham = dataSaham[idSaham]
-                Tabel = PrettyTable()
-                Tabel = PrettyTable()
-                Tabel.field_names = ['ID', 'Kode Saham', 'Nama Perusahaan', 'Harga Pembukaan', 'Harga Penutupan', 'Perubahan Harga', 'Nilai Transaksi']
-                Tabel.title = 'RINGKASAN PASAR SAHAM KONOHA 2025'
-                harga_pembukaan = nominal(saham['hargaPembukaan'])
-                harga_penutupan = nominal(saham['hargaPenutupan'])
-                perubahan_harga = presentase(saham['perubahan'])
-                nilai_transaksi = nominal(saham['nilai'])
-                Tabel.add_row([idSaham, saham['kode'], saham['perusahaan'], harga_pembukaan, harga_penutupan, perubahan_harga, nilai_transaksi])                
-                print(Tabel)
-
-                konfirmasi = input('Apakah Anda yakin ingin menghapus data saham tersebut (Ya/Tidak)?: ').capitalize()
-                if konfirmasi == 'Ya':
-                        recycle_bin[idSaham] = dataSaham[idSaham]
-                        dataSaham[idSaham]['hapus'] = True
-                        del dataSaham[idSaham]
-                        print('\n')
-                        print(f"{'Data saham berhasil dihapus':^100}")
-                        print(f"{'*'*3:^100}")
-                        menampilkan()
-                else:
-                        print('\n')
-                        print(f"{'Data saham batal dihapus':^100}")
-                        print(f"{'*'*3:^100}")
-
-        else:
-                print('\n')
-                print(f"{'Data Saham Tidak Ditemukan':^100}")
-                print(f"{'*'*3:^100}")
-                input(f"{'Tekan Enter untuk melanjutkan..':^99}")
-
-# menghapus data berdasarkan id untuk hard deleted
-def hapusPermanen():
-        while True:
-                try:
-                        idSaham = int(input('\t\t\t       => Masukkan ID saham yang ingin Anda hapus: '))
+        cari = None
+        for saham in dataSaham: 
+                if saham['kode'] == kodeSaham and saham['hapus'] == False:
+                        cari = saham # Menampilkan data saham berdasarkan kode saham yang ingin dihapus
                         break
-                except ValueError:
-                        print('\n')
-                        print(f"{'Maaf, ID yang Anda masukkan tidak valid. Pastikan ID berupa angka dan coba lagi.':^100}")
-                        print(f"{'*'*3:^100}")
-                        print('\n')
-                        
-        if idSaham in dataSaham:
+
+        if cari == None:
                 print('\n')
-                saham = dataSaham[idSaham]
-                Tabel = PrettyTable()
-                Tabel.field_names = ['ID', 'Kode Saham', 'Nama Perusahaan', 'Harga Pembukaan', 'Harga Penutupan', 'Perubahan Harga', 'Nilai Transaksi']
-                Tabel.title = 'RINGKASAN PASAR SAHAM KONOHA 2025'
-                harga_pembukaan = nominal(saham['hargaPembukaan'])
-                harga_penutupan = nominal(saham['hargaPenutupan'])
-                perubahan_harga = presentase(saham['perubahan'])
-                nilai_transaksi = nominal(saham['nilai'])
-                Tabel.add_row([idSaham, saham['kode'], saham['perusahaan'], harga_pembukaan, harga_penutupan, perubahan_harga, nilai_transaksi])
-                print(Tabel)  
-
-                konfirmasi = input('Apakah ingin melanjutkan menghapus data saham secara permanen (Ya/Tidak)?: ').capitalize()
-                if konfirmasi == 'Ya':
-                        del dataSaham[idSaham]
-                        print('\n')
-                        print(f"{'Data saham berhasil dihapus':^100}")
-                        print(f"{'*'*3:^100}")
-                        menampilkan()
-                else:
-                        print('\n')
-                        print(f"{'Data saham batal dihapus':^100}")
-                        print(f"{'*'*3:^100}")
-        else:
-                print(f"{'Data Saham Tidak Ditemukan':^100}")
+                print(f"{'Data dengan kode yang Anda masukkan tidak terdeteksi.':^100}")
                 print(f"{'*'*3:^100}")
-                input(f"{'Tekan Enter untuk melanjutkan..':^99}")
+                return
 
-# menampilkan data yg soft deleted
-def riwayatHapus():
         print('\n')
         Tabel = PrettyTable()
-        Tabel.field_names = ['ID', 'Kode Saham', 'Nama Perusahaan', 'Harga Pembukaan', 'Harga Penutupan', 'Perubahan Harga', 'Nilai Transaksi']
+        Tabel.field_names = ['Kode Saham', 'Nama Perusahaan', 'Harga Pembukaan', 'Harga Penutupan', 'Perubahan Harga', 'Nilai Transaksi']
+        Tabel.title = 'RINGKASAN PASAR SAHAM KONOHA 2025'
 
-        # cari = False
-        for idSaham, saham in recycle_bin.items():
-                # if saham['hapus'] == True:
-                        # cari = True
+        kode_saham = cari['kode']
+        nama_perusahaan = cari['perusahaan']
+        harga_pembukaan = nominal(cari['hargaPembukaan'])
+        harga_penutupan = nominal(cari['hargaPenutupan'])
+        perubahan_harga = presentase(cari['perubahan'])
+        nilai_transaksi = nominal(cari['nilai'])
+
+        Tabel.add_row([kode_saham, nama_perusahaan, harga_pembukaan, harga_penutupan, perubahan_harga, nilai_transaksi])
+        print(Tabel)
+
+        konfirmasi = input('Apakah Anda yakin ingin menghapus data saham tersebut (Ya/Tidak)?: ').capitalize()
+        if konfirmasi == 'Ya':
+                saham['hapus']=True
+                recycle_bin.append(cari)
+                print('\n')
+                print(f"{'Data saham berhasil dihapus.':^100}")
+                print(f"{'*'*3:^100}")
+                menampilkan()
+        elif konfirmasi == 'Tidak':
+                print('\n')
+                print(f"{'Data saham batal dihapus.':^100}")
+                print(f"{'*'*3:^100}")
+                input(f"{'Tekan Enter untuk melanjutkan..':^99}")
+        else:
+                print('\n')
+                print(f"{'Input masih tidak valid.':^100}")
+                print(f"{'*'*3:^100}")
+                input(f"{'Tekan Enter untuk melanjutkan..':^99}")
+
+# menghapus data berdasarkan kode saham untuk hard deleted
+def hapusPermanen():
+        while True:
+                try:    # Menghapus data saham berdasarkan kode saham (soft deleted)
+                        kodeSaham = input('\t\t\t       => Masukkan kode saham yang ingin Anda hapus: ').upper()
+                        break
+                except ValueError:
+                        print('\n')
+                        print(f"{'Maaf, kode yang Anda masukkan tidak valid. Pastikan kode saham benar dan coba lagi.':^100}")
+                        print(f"{'*'*3:^100}")
+                        print('\n')
+        cari = None
+        for saham in dataSaham: 
+                if saham['kode'] == kodeSaham and saham['hapus'] == False:
+                        cari = saham # Menampilkan data saham berdasarkan kode saham yang ingin dihapus
+                        
+                        print('\n')
                         Tabel = PrettyTable()
-                        Tabel.field_names = ['ID', 'Kode Saham', 'Nama Perusahaan', 'Harga Pembukaan', 'Harga Penutupan', 'Perubahan Harga', 'Nilai Transaksi']
-                        Tabel.title = 'RIWAYAT HAPUS DATA SAHAM KONOHA 2025'
+                        Tabel.field_names = ['Kode Saham', 'Nama Perusahaan', 'Harga Pembukaan', 'Harga Penutupan', 'Perubahan Harga', 'Nilai Transaksi']
+                        Tabel.title = 'RINGKASAN PASAR SAHAM KONOHA 2025'
+
+                        kode_saham = saham['kode']
+                        nama_perusahaan = saham['perusahaan']
                         harga_pembukaan = nominal(saham['hargaPembukaan'])
                         harga_penutupan = nominal(saham['hargaPenutupan'])
                         perubahan_harga = presentase(saham['perubahan'])
                         nilai_transaksi = nominal(saham['nilai'])
-                        Tabel.add_row([idSaham, saham['kode'], saham['perusahaan'], harga_pembukaan, harga_penutupan, perubahan_harga, nilai_transaksi])
-        
-        if not recycle_bin: 
-                print(f"{'Data saham di riwayat hapus kosong':^100}")
+
+                        Tabel.add_row([kode_saham, nama_perusahaan, harga_pembukaan, harga_penutupan, perubahan_harga, nilai_transaksi])
+                        print(Tabel)
+
+                        konfirmasi = input('Apakah ingin melanjutkan menghapus data saham secara permanen (Ya/Tidak)?: ').capitalize()
+                        if konfirmasi == 'Ya':
+                                if saham['kode'] == kodeSaham:
+                                        dataSaham.remove(cari)
+                                        print('\n')
+                                        print(f"{'Data saham berhasil dihapus':^100}")
+                                        print(f"{'*'*3:^100}")
+                                        menampilkan()
+                        elif konfirmasi == 'Tidak':
+                                print('\n')
+                                print(f"{'Data saham batal dihapus.':^100}")
+                                print(f"{'*'*3:^100}")
+                                input(f"{'Tekan Enter untuk melanjutkan..':^99}")
+                        else:
+                                print('\n')
+                                print(f"{'Input masih tidak valid.':^100}")
+                                print(f"{'*'*3:^100}")
+                                input(f"{'Tekan Enter untuk melanjutkan..':^99}")
+                        
+                        break
+                
+        if cari == None:
+                print('\n')
+                print(f"{'Data dengan kode yang Anda masukkan tidak terdeteksi.':^100}")
                 print(f"{'*'*3:^100}")
-                input(f"{'Tekan Enter untuk melanjutkan..':^99}")
-        else:        
+
+# menampilkan data yg dihapus sementara
+def riwayatHapus():
+        print('\n')
+        Tabel = PrettyTable()
+        Tabel.field_names = ['Kode Saham', 'Nama Perusahaan', 'Harga Pembukaan', 'Harga Penutupan', 'Perubahan Harga', 'Nilai Transaksi']
+        Tabel.title = 'RINGKASAN PASAR SAHAM KONOHA 2025'
+        
+        if len(recycle_bin) == 0:
+                Tabel.add_row(['Data Saham Kosong']*6)
                 print(Tabel)
-                input('=> Tekan Enter untuk melanjutkan..')
+        else:
+                for saham in recycle_bin:
+                        kode_saham = saham['kode']
+                        nama_perusahaan = saham['perusahaan']
+                        harga_pembukaan = nominal(saham['hargaPembukaan'])
+                        harga_penutupan = nominal(saham['hargaPenutupan'])
+                        perubahan_harga = presentase(saham['perubahan'])
+                        nilai_transaksi = nominal(saham['nilai'])
+
+                        Tabel.add_row([kode_saham, nama_perusahaan, harga_pembukaan, harga_penutupan, perubahan_harga, nilai_transaksi])
+
+                print(Tabel.get_string(sortby='Kode Saham'))
 
 # memulihkan data yg ada di riwayat hapus
 def pulihkanData():
         if not recycle_bin:
+                riwayatHapus()
+                print(f"{'Data Saham Tidak Ditemukan di Riwayat Hapus':^100}")
+                print(f"{'*'*3:^100}")
+                input(f"{'Tekan Enter untuk melanjutkan..':^99}")
                 return
         else:
                 while True:
                         try:
-                                idSaham = int(input('=> Masukkan ID saham yang ingin Anda pulihkan: '))
+                                kodeSaham = input('=> Masukkan kode saham yang ingin Anda pulihkan: ').upper()
                                 break
                         except ValueError:
-                                print('Id saham yang anda masukkan tidak valid, id harus berupa angka.')
-                                
-                if idSaham in recycle_bin:
-                        dataSaham[idSaham] = recycle_bin[idSaham]
-                        konfirmasi = input('Apakah anda yakin ingin memulihkan data saham tersebut(Ya/Tidak)?: ').capitalize()
-                        if konfirmasi == 'Ya':
-                                dataSaham[idSaham]['hapus'] = False
-                                del recycle_bin[idSaham]
-                                print('\nData Saham Berhasil Dipulihkan')
-                                menampilkan()  # Menampilkan data yang sudah dipulihkan
-                                
-                        else:
-                                print(f"{'\nData Saham Batal Dipulihkan':^100}")
-                                print(f"{'*'*3:^100}")
-                        
+                                print('kode saham yang anda masukkan tidak valid. Pastikan kode saham benar dan coba lagi.')
+                
+                print('\n')
+                print('Data yang ingin dipulihkan: ')                
+                cari = None
+
+                for saham in recycle_bin: 
+                        if saham['kode'] == kodeSaham:
+                                cari = saham # Menampilkan data saham berdasarkan kode saham yang ingin dipulihkan
+                                break
+
+                if not cari:
+                        print(f"{'Data Saham Tidak Ditemukan di Riwayat Hapus':^100}")
+                        print(f"{'*'*3:^100}")
+                        input(f"{'Tekan Enter untuk melanjutkan..':^99}")
+                        return  # Keluar jika tidak ditemukan
+                
+                # Menampilkan jika data ditemukan
+                Tabel = PrettyTable()
+                Tabel.field_names = ['Kode Saham', 'Nama Perusahaan', 'Harga Pembukaan', 'Harga Penutupan', 'Perubahan Harga', 'Nilai Transaksi']
+                Tabel.title = 'RINGKASAN PASAR SAHAM KONOHA 2025'
+
+                kode_saham = cari['kode']
+                nama_perusahaan = cari['perusahaan']
+                harga_pembukaan = nominal(cari['hargaPembukaan'])
+                harga_penutupan = nominal(cari['hargaPenutupan'])
+                perubahan_harga = presentase(cari['perubahan'])
+                nilai_transaksi = nominal(cari['nilai'])
+
+                Tabel.add_row([kode_saham, nama_perusahaan, harga_pembukaan, harga_penutupan, perubahan_harga, nilai_transaksi])
+                print(Tabel)
+
+                konfirmasi = input('Apakah ingin melanjutkan memulihkan data saham tersebut (Ya/Tidak)?: ').capitalize()
+                if konfirmasi == 'Ya':
+                        dataSaham.append(cari)
+                        cari['hapus'] = False
+                        recycle_bin.remove(cari)
+                        print('\n')
+                        print(f"{'Data saham berhasil dipulihkan.':^100}")
+                        print(f"{'*'*3:^100}")
+                        menampilkan()
+                elif konfirmasi == 'Tidak':
+                        print('\n')
+                        print(f"{'Data saham batal dipulihkan.':^100}")
+                        print(f"{'*'*3:^100}")
+                        menampilkan()
                 else:
-                        print(f"{'Data Saham Tidak Ditemukan':^100}")
+                        print('\n')
+                        print(f"{'Input masih tidak valid.':^100}")
                         print(f"{'*'*3:^100}")
                         input(f"{'Tekan Enter untuk melanjutkan..':^99}")
 
 # tampilan menu untuk menghapus data  
 def hapusData():
         bersihkan_layar() 
+        
         while True:              
                 print('\n')
                 print('='*110)
@@ -792,7 +902,7 @@ def hapusData():
                                =======================================
                                Daftar Menu Penghapusan:
                                =======================================
-                               [1] Menghapus Data Saham  
+                               [1] Hapus Sementara Data Saham  
                                [2] Hapus Permanen Data Saham
                                [3] Data Saham Terhapus
                                [4] Pemulihan Data Saham Terhapus
@@ -807,7 +917,6 @@ def hapusData():
                 elif menuHapus == '3':
                         riwayatHapus()
                 elif menuHapus == '4':
-                        riwayatHapus()
                         pulihkanData()
                 elif menuHapus == '5':
                         break
@@ -820,9 +929,11 @@ def hapusData():
 # ****************************
 # ********** EXIT **********
 # ****************************
+
 # tampilan menu untuk keluar dari pemrograman
 def keluarSistem (pengguna):
         bersihkan_layar()
+
         while True:
                 print('\n')
                 print('='*110)
@@ -864,5 +975,6 @@ def user():
         else:
                 print('\nStatus pengguna atau kata sandi yang Anda masukkan salah. Silakan coba lagi.\n')
 
-user()
+# user()
+menu_utama('admin')
 
