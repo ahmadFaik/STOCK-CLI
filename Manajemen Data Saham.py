@@ -293,9 +293,8 @@ def filterHarga():
                 input(f"{'Tekan Enter untuk melanjutkan..':^99}")
 
 def tampilkanData():
-        bersihkan_layar()
         while True:
-                print('\r\n')
+                print('\n')
                 print('='*110)
                 print(f"{'SISTEM MANAJEMEN DATA SAHAM KONOHA':^100}")
                 print('='*110)
@@ -402,20 +401,25 @@ def cekNilai():
                         print('\n')
 
 def menambahkan():
-        # User menambahkan nama perusahaan saham tersebut
-        print('\n')
-        perusahaan = cekPerusahaan()
-        kode = konfersiKode(perusahaan)
-
+        while True:
+                print('\n')
+                kodeSaham = input('=> Masukkan kode saham untuk cek data saham: ').upper() # User input kode untuk cek data
+                if len(kodeSaham) == 4 and kodeSaham.isalpha():
+                        break
+                else:
+                        print('\n')
+                        print(f"{'Maaf, kode yang Anda masukkan tidak valid.':^100}")
+                        print(f"{'*'*3:^100}")
+                        print('\n')
+                        tambahData()
+                        
         cari = False
         for saham in dataSaham:
-                if saham ['kode'] == kode:
+                if saham ['kode'] == kodeSaham:
                         cari=True
                         break 
         if cari:
-                print('\n')
-                print('Nama perusahaan yang Anda masukkan sudah terdaftar dalam data.')
-                print('\n')                
+                print('Data saham yang Anda masukkan sudah terdaftar:')             
                 cari = True 
                 
                 Tabel = PrettyTable()
@@ -433,7 +437,9 @@ def menambahkan():
                 print(Tabel.get_string(sortby='Kode Saham'))
                 return
                 
-        else:        
+        else:
+                perusahaan = cekPerusahaan() # User menambahkan nama perusahaan saham tersebut 
+                kode = konfersiKode(perusahaan)
                 hargaPembukaan = cekHargaPembukaan() # User menambahkan harga prmbukaan saham baru
                 hargaPenutupan = cekHargaPenutupan() # User menambahkan harga penutupan saham baru
                 perubahanHarga = cekPerubahan(hargaPembukaan, hargaPenutupan)# Menampilkan nilai perubahan harga saham
@@ -486,7 +492,6 @@ def menambahkan():
                         input(f"{'Tekan Enter untuk melanjutkan..':^99}")
 
 def tambahData():
-        bersihkan_layar()
         while True:
                 print('\n')
                 print('='*110)
@@ -889,8 +894,6 @@ def pulihkanData():
 
 # tampilan menu untuk menghapus data  
 def hapusData():
-        bersihkan_layar() 
-        
         while True:              
                 print('\n')
                 print('='*110)
