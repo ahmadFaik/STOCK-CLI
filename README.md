@@ -36,11 +36,6 @@ secara cepat dan efektif.
 - **Output**: Contoh output menampilkan semua data dari aplikasi ini.
   ![image](https://github.com/user-attachments/assets/513af3c6-010e-4b3a-989c-333e8287007d)
 
-  
-## Flowchart
-📊 **Lihat Alur Proyek**:  
-Untuk memahami alur dari sistem manajemen data saham, cek **[Flowchart Proyek]**. 
-
 ## Instalasi
 
 Untuk memulai dengan proyek ini, ikuti langkah-langkah di bawah ini:
